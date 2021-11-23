@@ -9,39 +9,91 @@ Original file is located at
 # **Machine Learning for Protein Similarity Computation**
 """
 
-# For getting csv file locally
-from google.colab import files  
-uploaded = files.upload()
+import io
+import json
+import random
+import re
 
-import pandas as pd
-import lightgbm
+# import lightgbm
 import numpy as np
+import pandas as pd
+from Bio import Align
+from transformers import AutoModel, AutoTokenizer
 
-SW_score_file = "sw_sim_matrix.csv"
+import logging
 
-import io
+SW_SCORES_PATH = "sw_sim_matrix.csv"
 
-# sw_sim_df = pd.read_csv(io.BytesIO(uploaded['sw_sim_matrix.csv']))
-print(uploaded)
-# Dataset is now stored in a Pandas Dataframe
-
-# For getting csv file from github
-url = 'copied_raw_GH_link'
-df1 = pd.read_csv(url)
-# Dataset is now stored in a Pandas Dataframe
-
-import io
-df_data = pd.read_json(io.BytesIO(uploaded['proteins.json']), typ="series")
+PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
+PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
 
 def print_data(data):
-  count = 0
   for index, value in data.items():
-    count = count + 1
     print(f"Index : {index}, Value : {value}")
-    if count == 5:
-      break
 
-import random
+
+def get_protein_sequences_json(file_path):
+  '''
+  
+  Returns:
+    Proteins object storing <str, str>:
+      - Key: name
+      - Value: sequence
+  '''
+  p_file = open(file_path)
+  proteins = json.load(p_file)
+
+  logging.info("Reading protein sequences COMPLETE.")
+  for name, sequence in proteins.items():
+    logging.debug(f'Name:{name}')
+    logging.debug(f'Sequence:{sequence}')
+
+  return proteins
+
+
+def get_similarity_matrix(filename):
+  df =  pd.read_csv(filename)
+  logging.info('Similarity matrix is obtained.')
+
+  return df
+
+
+def get_protbert_embedding(aa_sequence: str):
+  cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
+  tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
+  output = PROTBERT(**tokens)
+  return output.last_hidden_state.detach().numpy().mean(axis=1)
+
+
+def prepare_similarity_scores(similarity_matrix):
+  similarity_score_dict = {}
+
+  for _, score_list in similarity_matrix.iterrows():
+    c = 0
+    for score in score_list[1:]:
+      c += 1
+      similarity_score_dict[(score_list[0], similarity_matrix.columns[c])] = score
+
+    return similarity_score_dict
+
+
+def prepare_model_data(similarity_matrix: pd.DataFrame):
+  plain_data = list(prepare_similarity_scores(similarity_matrix).items())
+  random.shuffle(plain_data)
+
+  train_data = plain_data[0:400]
+  test_data = plain_data[400:]
+
+  return train_data, test_data
+
+similarity_matrix = get_similarity_matrix('sw_sim_matrix.csv')
+protein_sequences = get_protein_sequences_json('proteins.json')
+
+train_data, test_data = prepare_model_data(similarity_matrix)
+
+x = get_protbert_embedding("MDRMKKIKRQLSMTLRGGRGIDKTNGAPEQIGLDESGGGGGSDPGEAPTRAAPGELRSARGPLSSAPEIVHEDLKMGSDGESDQASATSSDEVQSPVRVRMRNHPPRKISTEDINKRLSLPADIRLPEGYLEKLTLNSPIFDKPLSRRLRRVSLSEIGFGKLETYIKLDKLGEGTYATVYKGKSKLTDNLVALKEIRLEHEEGAPCTAIREVSLLKDLKHANIVTLHDIIHTEKSLTLVFEYLDKDLKQYLDDCGNIINMHNVKLFLFQLLRGLAYCHRQKVLHRDLKPQNLLINERGELKLADFGLARAKSIPTKTYSNEVVTLWYRPPDILLGSTDYSTQIDMWGVGCIFYEMATGRPLFPGSTVEEQLHFIFRILGTPTEETWPGILSNEEFKTYNYPKYRAEALLSHAPRLDSDGADLLTKLLQFEGRNRISAEDAMKHPFFLSLGERIHKLPDTTSIFALKEIQLQKEASLRSSSMPDSGRPAFRVVDTEF")
+print()
+"""
 plain_data = list(df_data.items())
 random.shuffle(plain_data)
 train_X = plain_data[0:400]
@@ -66,11 +118,7 @@ print(len(SW_score_dict.keys()))
 
 """### PROTBERT"""
 
-!pip install transformers
-import re
-import transformers
-from transformers import AutoTokenizer, AutoModel
-
+"""
 protein_tokenizer = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
 protbert = AutoModel.from_pretrained('Rostlab/prot_bert')
 
@@ -120,7 +168,6 @@ print(_prot)
 
 !pip install biopython
 
-from Bio import Align
 aligner = Align.PairwiseAligner()
 aligner.mode = "local"
 print(aligner.algorithm)
@@ -132,3 +179,4 @@ aligner.score(p1, p2)
 #for alignment in sorted(alignments):
 #    print("Score = %.1f:" % alignment.score)
 #    print(alignment)
+"""
