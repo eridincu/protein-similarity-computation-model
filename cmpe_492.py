@@ -13,24 +13,26 @@ import io
 import json
 import random
 import re
+import sys
 
 # import lightgbm
 import numpy as np
 import pandas as pd
-from Bio import Align
 from transformers import AutoModel, AutoTokenizer
 
 import logging
 
 SW_SCORES_PATH = "sw_sim_matrix.csv"
 
+PROTBERT 
+
+
+print("Getting ProtBert Model and Tokenizer")
 PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
 PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
-
-def print_data(data):
-  for index, value in data.items():
-    print(f"Index : {index}, Value : {value}")
-
+PROTEIN_TOKENIZER.save_pretrained("/Users/hazelcast/Desktop/protein-similarity-computation-model/")
+PROTBERT.save_pretrained("/Users/hazelcast/Desktop/protein-similarity-computation-model/")
+print("Model and tokenizer saved in local")
 
 def get_protein_sequences_json(file_path):
   '''
@@ -86,6 +88,32 @@ def prepare_model_data(similarity_matrix: pd.DataFrame):
 
   return train_data, test_data
 
+def update_protein_seq(file_path):
+    p_file = open(file_path)
+    proteins = json.load(p_file)
+
+    proteins_with_space = {}
+    for name, sequence in proteins.items():
+        proteins_with_space[name] = sequence.replace("", " ")[1: -1]
+    
+    return proteins_with_space
+        
+def dict_dump(dictionary, name):
+    '''
+    -> Outputs the dictionary to a json file
+    '''
+    fout = open(f"{name}.json","w",encoding="utf-8")
+    json.dump(dictionary, fout)
+    fout.flush()
+    fout.close()
+
+def main():
+    print("aaa")
+
+if __name__ == "__main__":
+    main()
+
+"""
 similarity_matrix = get_similarity_matrix('sw_sim_matrix.csv')
 protein_sequences = get_protein_sequences_json('proteins.json')
 
@@ -93,59 +121,6 @@ train_data, test_data = prepare_model_data(similarity_matrix)
 
 x = get_protbert_embedding("MDRMKKIKRQLSMTLRGGRGIDKTNGAPEQIGLDESGGGGGSDPGEAPTRAAPGELRSARGPLSSAPEIVHEDLKMGSDGESDQASATSSDEVQSPVRVRMRNHPPRKISTEDINKRLSLPADIRLPEGYLEKLTLNSPIFDKPLSRRLRRVSLSEIGFGKLETYIKLDKLGEGTYATVYKGKSKLTDNLVALKEIRLEHEEGAPCTAIREVSLLKDLKHANIVTLHDIIHTEKSLTLVFEYLDKDLKQYLDDCGNIINMHNVKLFLFQLLRGLAYCHRQKVLHRDLKPQNLLINERGELKLADFGLARAKSIPTKTYSNEVVTLWYRPPDILLGSTDYSTQIDMWGVGCIFYEMATGRPLFPGSTVEEQLHFIFRILGTPTEETWPGILSNEEFKTYNYPKYRAEALLSHAPRLDSDGADLLTKLLQFEGRNRISAEDAMKHPFFLSLGERIHKLPDTTSIFALKEIQLQKEASLRSSSMPDSGRPAFRVVDTEF")
 print()
-"""
-plain_data = list(df_data.items())
-random.shuffle(plain_data)
-train_X = plain_data[0:400]
-test_X = plain_data[400:]
-print(len(train_X))
-print(len(test_X))
-print_data(train_X)
-print_data(test_X)
-
-df_SW_score = pd.read_csv('sw_sim_matrix.csv')
-SW_score_dict = {}
-c = 0
-for _, score_list in df_SW_score.iterrows():
-  c = 0
-  for score in score_list[1:]:
-    c = c + 1
-    #print(score_list[0], df_SW_score.columns[c], score)
-    SW_score_dict[(score_list[0], df_SW_score.columns[c])] = score
-
-print(SW_score_dict[("P54762", "Q12852")])
-print(len(SW_score_dict.keys()))
-
-"""### PROTBERT"""
-
-"""
-protein_tokenizer = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
-protbert = AutoModel.from_pretrained('Rostlab/prot_bert')
-
-def get_protbert_embedding(aa_sequence: str):
-   cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
-   tokens = protein_tokenizer(cleaned_sequence, return_tensors='pt')
-   output = protbert(**tokens)
-   return output.last_hidden_state.detach().numpy().mean(axis=1)
-
-def update_plain_data(data, func):
-  vector_data = {}
-  prior_embedding = []
-  for id, seq in data:
-    vector_data[id] = get_protbert_embedding(seq)
-    if not prior_embedding:
-      prior_embedding = vector_data[id]
-
-    if prior_embedding == vector_data[id]:
-      print("Lists are equal.")
-    else:
-      print("Lists are not equal.")
-    prior_embedding = vector_data[id]
-
-  return vector_data
-
-train_X = update_plain_data(train_X, get_protbert_embedding)
-test_X = update_plain_data(test_X, get_protbert_embedding)
 
 print(train_X["P53350"])
 asd = np.concatenate((train_X["P53350"],np.flip(train_X["P53350"])), axis=1)
@@ -160,8 +135,6 @@ for id, vector in train_X.items():
     train_X_final[(id, id2)] = np.concatenate((vector, vector2), axis=1)
     train_Y_final[(id, id2)] = SW_score_dict[(id, id2)]
 
-print_data(train_X_final)
-print_data(train_Y_final)
 
 _prot = get_protbert_embedding("MDRMKKIKRQLSMTLRGGRGIDKTNGAPEQIGLDESGGGGGSDPGEAPTRAAPGELRSARGPLSSAPEIVHEDLKMGSDGESDQASATSSDEVQSPVRVRMRNHPPRKISTEDINKRLSLPADIRLPEGYLEKLTLNSPIFDKPLSRRLRRVSLSEIGFGKLETYIKLDKLGEGTYATVYKGKSKLTDNLVALKEIRLEHEEGAPCTAIREVSLLKDLKHANIVTLHDIIHTEKSLTLVFEYLDKDLKQYLDDCGNIINMHNVKLFLFQLLRGLAYCHRQKVLHRDLKPQNLLINERGELKLADFGLARAKSIPTKTYSNEVVTLWYRPPDILLGSTDYSTQIDMWGVGCIFYEMATGRPLFPGSTVEEQLHFIFRILGTPTEETWPGILSNEEFKTYNYPKYRAEALLSHAPRLDSDGADLLTKLLQFEGRNRISAEDAMKHPFFLSLGERIHKLPDTTSIFALKEIQLQKEASLRSSSMPDSGRPAFRVVDTEF")
 print(_prot)
