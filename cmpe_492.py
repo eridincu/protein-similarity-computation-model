@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 from Bio import Align
 from transformers import AutoModel, AutoTokenizer
+from sklearn import svm
 
 
 logging.basicConfig(filename="LOGS.txt",
@@ -150,6 +151,35 @@ def prepare_model_data(data, protein_sequences_vectorized):
     return X, y
 
 
+def train_protein_similarity_model(train_X, train_y):
+    clf = svm.SVC(gamma=0.001, C=100.)
+
+    X = np.array()
+    y = np.array()
+
+    for protein_pair, vector in train_X.items():
+        X.append(vector)
+        y.append(train_y[protein_pair])
+
+    clf.fit(X, y)
+
+    return clf
+
+
+def test_model(test_X, test_y, similarity_model):
+    c = 0
+    for protein_pair, vector in test_X:
+        prediction = similarity_model.predict(vector)
+
+        if abs(prediction - test_y[protein_pair]) <= 0.001:
+            c += 1
+
+    print(f'{c} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c} out of {len(test_X)} samples are predicted close to correct.')
+
+    return c
+
+
 similarity_df = get_similarity_df('sw_sim_matrix.csv')
 protein_sequences_vectorized = get_protein_sequences_vectorized(
     'proteins.json', get_protbert_embedding)
@@ -175,31 +205,12 @@ with open('test_y.json', 'w') as f:
 
 logging.info("Completed!")
 
+similarity_model = train_protein_similarity_model(train_X, train_y)
+correctly_predicted_count = test_model(test_X, test_y, similarity_model)
+
+
 """### PROTBERT"""
-
 """
-
-
-print(train_X["P53350"])
-asd = np.concatenate((train_X["P53350"],np.flip(train_X["P53350"])), axis=1)
-print(asd)
-print(np.flip(asd))
-print(np.shape(asd))
-
-train_X_final = {}
-train_Y_final = {}
-for id, vector in train_X.items():
-  for id2, vector2 in train_X.items():
-    train_X_final[(id, id2)] = np.concatenate((vector, vector2), axis=1)
-    train_Y_final[(id, id2)] = SW_score_dict[(id, id2)]
-
-print_data(train_X_final)
-print_data(train_Y_final)
-
-_prot = get_protbert_embedding("MDRMKKIKRQLSMTLRGGRGIDKTNGAPEQIGLDESGGGGGSDPGEAPTRAAPGELRSARGPLSSAPEIVHEDLKMGSDGESDQASATSSDEVQSPVRVRMRNHPPRKISTEDINKRLSLPADIRLPEGYLEKLTLNSPIFDKPLSRRLRRVSLSEIGFGKLETYIKLDKLGEGTYATVYKGKSKLTDNLVALKEIRLEHEEGAPCTAIREVSLLKDLKHANIVTLHDIIHTEKSLTLVFEYLDKDLKQYLDDCGNIINMHNVKLFLFQLLRGLAYCHRQKVLHRDLKPQNLLINERGELKLADFGLARAKSIPTKTYSNEVVTLWYRPPDILLGSTDYSTQIDMWGVGCIFYEMATGRPLFPGSTVEEQLHFIFRILGTPTEETWPGILSNEEFKTYNYPKYRAEALLSHAPRLDSDGADLLTKLLQFEGRNRISAEDAMKHPFFLSLGERIHKLPDTTSIFALKEIQLQKEASLRSSSMPDSGRPAFRVVDTEF")
-print(_prot)
-
-!pip install biopython
 
 aligner = Align.PairwiseAligner()
 aligner.mode = "local"
