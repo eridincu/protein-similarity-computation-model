@@ -11,6 +11,7 @@ Original file is located at
 
 import io
 import json
+import logging
 import random
 import re
 
@@ -20,132 +21,164 @@ import pandas as pd
 from Bio import Align
 from transformers import AutoModel, AutoTokenizer
 
-import logging
+
+logging.basicConfig(filename="LOGS.txt",
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
+
 
 SW_SCORES_PATH = "sw_sim_matrix.csv"
 
-PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
+PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained(
+    'Rostlab/prot_bert', do_lower_case=False)
 PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
 
+
 def print_data(data):
-  for index, value in data.items():
-    print(f"Index : {index}, Value : {value}")
+    for index, value in data.items():
+        print(f"Index : {index}, Value : {value}")
 
 
-def get_protein_sequences_json(file_path):
-  '''
-  
-  Returns:
-    Proteins object storing <str, str>:
-      - Key: name
-      - Value: sequence
-  '''
-  p_file = open(file_path)
-  proteins = json.load(p_file)
+def get_protein_sequences_vectorized(file_path, vectorizer):
+    '''
 
-  logging.info("Reading protein sequences COMPLETE.")
-  for name, sequence in proteins.items():
-    logging.debug(f'Name:{name}')
-    logging.debug(f'Sequence:{sequence}')
+    Returns:
+      Proteins object storing <str, str>:
+        - Key: name
+        - Value: sequence
+    '''
+    p_json = {}
+    with open(file_path, 'r') as p_file:
+        p_json = json.load(p_file)
 
-  return proteins
+        if p_json["is_vectorized"]:
+            logging.info('Proteins already vectorized.')
+            return p_json["proteins"]
+
+    proteins = p_json["proteins"]
+    vectorized_proteins = {}
+
+    logging.info('Starting vectorizing proteins.')
+    for name, sequence in proteins.items():
+        # converts "abc" -> " a b c ", discard first and last whitespace.
+        vectorized_proteins[name] = vectorizer(sequence.replace("", " ")[1:-1])
+
+        logging.info(f'Vectorized protein {name}')
+
+    p_json["proteins"] = vectorized_proteins
+    p_json["is_vectorized"] = True
+
+    with open(file_path, 'w') as p_file:
+        logging.info(f'Saving vectorized proteins to {file_path}')
+        p_file.write(json.dumps(p_json))
+
+    logging.info("Vectorized all protein sequences.")
+
+    return vectorized_proteins
 
 
-def get_similarity_matrix(filename):
-  df =  pd.read_csv(filename)
-  logging.info('Similarity matrix is obtained.')
+def get_similarity_df(filename):
+    df = pd.read_csv(filename)
+    logging.info('Similarity matrix is obtained.')
 
-  return df
-
-
-def get_protbert_embedding(aa_sequence: str):
-  cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
-  tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
-  output = PROTBERT(**tokens)
-  return output.last_hidden_state.detach().numpy().mean(axis=1)
+    return df
 
 
-def prepare_similarity_scores(similarity_matrix):
-  similarity_score_dict = {}
+def prepare_similarity_scores(similarity_df):
+    similarity_score_dict = {}
+    logging.info('Preparing similarity score dictionary.')
+    for _, score_list in similarity_df.iterrows():
+        c = 0
+        for score in score_list[1:]:
+            c += 1
+            similarity_score_dict[(
+                score_list[0], similarity_df.columns[c])] = score
 
-  for _, score_list in similarity_matrix.iterrows():
-    c = 0
-    for score in score_list[1:]:
-      c += 1
-      similarity_score_dict[(score_list[0], similarity_matrix.columns[c])] = score
+    logging.info('Prepared similarity score dictionary.')
 
     return similarity_score_dict
 
 
-def prepare_model_data(similarity_matrix: pd.DataFrame):
-  plain_data = list(prepare_similarity_scores(similarity_matrix).items())
-  random.shuffle(plain_data)
+def vectorize_data(data, vectorizer):
+    vector_data = {}
+    for id, seq in data:
+        vector_data[id] = vectorizer(seq)
 
-  train_data = plain_data[0:400]
-  test_data = plain_data[400:]
+    return vector_data
 
-  return train_data, test_data
 
-similarity_matrix = get_similarity_matrix('sw_sim_matrix.csv')
-protein_sequences = get_protein_sequences_json('proteins.json')
+def get_protbert_embedding(aa_sequence: str):
+    cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
+    tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
+    output = PROTBERT(**tokens)
+    return output.last_hidden_state.detach().numpy().mean(axis=1)
 
-train_data, test_data = prepare_model_data(similarity_matrix)
 
-x = get_protbert_embedding("MDRMKKIKRQLSMTLRGGRGIDKTNGAPEQIGLDESGGGGGSDPGEAPTRAAPGELRSARGPLSSAPEIVHEDLKMGSDGESDQASATSSDEVQSPVRVRMRNHPPRKISTEDINKRLSLPADIRLPEGYLEKLTLNSPIFDKPLSRRLRRVSLSEIGFGKLETYIKLDKLGEGTYATVYKGKSKLTDNLVALKEIRLEHEEGAPCTAIREVSLLKDLKHANIVTLHDIIHTEKSLTLVFEYLDKDLKQYLDDCGNIINMHNVKLFLFQLLRGLAYCHRQKVLHRDLKPQNLLINERGELKLADFGLARAKSIPTKTYSNEVVTLWYRPPDILLGSTDYSTQIDMWGVGCIFYEMATGRPLFPGSTVEEQLHFIFRILGTPTEETWPGILSNEEFKTYNYPKYRAEALLSHAPRLDSDGADLLTKLLQFEGRNRISAEDAMKHPFFLSLGERIHKLPDTTSIFALKEIQLQKEASLRSSSMPDSGRPAFRVVDTEF")
-print()
-"""
-plain_data = list(df_data.items())
-random.shuffle(plain_data)
-train_X = plain_data[0:400]
-test_X = plain_data[400:]
-print(len(train_X))
-print(len(test_X))
-print_data(train_X)
-print_data(test_X)
+def split_data(similarity_df: pd.DataFrame, train_data_size: int):
+    logging.info("Splitting data...")
+    plain_data = list(prepare_similarity_scores(similarity_df).items())
+    random.shuffle(plain_data)
 
-df_SW_score = pd.read_csv('sw_sim_matrix.csv')
-SW_score_dict = {}
-c = 0
-for _, score_list in df_SW_score.iterrows():
-  c = 0
-  for score in score_list[1:]:
-    c = c + 1
-    #print(score_list[0], df_SW_score.columns[c], score)
-    SW_score_dict[(score_list[0], df_SW_score.columns[c])] = score
+    train_data = plain_data[0:train_data_size]
+    test_data = plain_data[train_data_size:]
 
-print(SW_score_dict[("P54762", "Q12852")])
-print(len(SW_score_dict.keys()))
+    logging.info("Splitted data.")
+    return train_data, test_data
+
+
+def prepare_model_data(data, protein_sequences_vectorized):
+    X = {}
+    y = {}
+
+    logging.info("Preparing model data...")
+    for t in data:
+        first_protein = t[0][0]
+        second_protein = t[0][1]
+        similarity_score = t[1]
+
+        X[t[0]] = np.concatenate((protein_sequences_vectorized[first_protein],
+                                 protein_sequences_vectorized[second_protein]), axis=1)
+        X[t[0][::-1]] = np.concatenate((protein_sequences_vectorized[second_protein],
+                                       protein_sequences_vectorized[first_protein]), axis=1)
+
+        y[t[0]] = similarity_score
+        y[t[0][::-1]] = similarity_score
+
+    logging.info("Prepared model data.")
+    return X, y
+
+
+similarity_df = get_similarity_df('sw_sim_matrix.csv')
+protein_sequences_vectorized = get_protein_sequences_vectorized(
+    'proteins.json', get_protbert_embedding)
+
+train_data, test_data = split_data(similarity_df)
+
+logging.info("Train preparation:")
+train_X, train_y = prepare_model_data(train_data, protein_sequences_vectorized)
+
+logging.info("\Test preparation:")
+test_X, test_y = prepare_model_data(train_data, protein_sequences_vectorized)
+
+logging.info("Dumping all model data...")
+
+with open('train_x.json', 'w') as f:
+    f.write(json.dumps(train_X))
+with open('train_y.json', 'w') as f:
+    f.write(json.dumps(train_y))
+with open('test_x.json', 'w') as f:
+    f.write(json.dumps(test_X))
+with open('test_y.json', 'w') as f:
+    f.write(json.dumps(test_y))
+
+logging.info("Completed!")
 
 """### PROTBERT"""
 
 """
-protein_tokenizer = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
-protbert = AutoModel.from_pretrained('Rostlab/prot_bert')
 
-def get_protbert_embedding(aa_sequence: str):
-   cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
-   tokens = protein_tokenizer(cleaned_sequence, return_tensors='pt')
-   output = protbert(**tokens)
-   return output.last_hidden_state.detach().numpy().mean(axis=1)
-
-def update_plain_data(data, func):
-  vector_data = {}
-  prior_embedding = []
-  for id, seq in data:
-    vector_data[id] = get_protbert_embedding(seq)
-    if not prior_embedding:
-      prior_embedding = vector_data[id]
-
-    if prior_embedding == vector_data[id]:
-      print("Lists are equal.")
-    else:
-      print("Lists are not equal.")
-    prior_embedding = vector_data[id]
-
-  return vector_data
-
-train_X = update_plain_data(train_X, get_protbert_embedding)
-test_X = update_plain_data(test_X, get_protbert_embedding)
 
 print(train_X["P53350"])
 asd = np.concatenate((train_X["P53350"],np.flip(train_X["P53350"])), axis=1)

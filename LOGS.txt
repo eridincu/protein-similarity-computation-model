@@ -1,0 +1,153 @@
+03:56:22,543 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:24,409 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+03:56:24,417 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:25,32 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+03:56:25,188 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:25,789 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+03:56:25,792 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:26,394 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+03:56:26,397 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:26,995 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+03:56:26,998 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:27,629 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+03:56:27,632 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:28,245 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+03:56:28,248 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:28,866 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+03:56:28,874 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:29,445 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+03:56:29,451 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:30,70 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+03:56:30,125 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:30,758 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+03:56:30,782 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+03:56:31,369 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+03:56:39,135 root INFO Similarity matrix is obtained.
+03:56:39,189 root INFO Starting vectorizing proteins.
+03:56:47,496 root INFO Vectorized protein Q01959
+03:56:55,303 root INFO Vectorized protein Q9UPZ9
+03:56:58,82 root INFO Vectorized protein P09038
+03:57:01,570 root INFO Vectorized protein P45985
+03:57:11,780 root INFO Vectorized protein Q16832
+03:57:37,851 root INFO Vectorized protein P29317
+03:57:45,220 root INFO Vectorized protein Q00536
+03:58:05,344 root INFO Vectorized protein Q8TD19
+03:58:14,982 root INFO Vectorized protein Q9H093
+03:58:29,879 root INFO Vectorized protein P36888
+03:58:37,271 root INFO Vectorized protein P79218
+03:59:11,836 root INFO Vectorized protein P29323
+03:59:22,435 root INFO Vectorized protein O60331
+03:59:26,563 root INFO Vectorized protein P49841
+04:00:29,880 root INFO Vectorized protein P35968
+04:00:43,87 root INFO Vectorized protein P15056
+04:00:49,584 root INFO Vectorized protein P20794
+04:00:57,397 root INFO Vectorized protein Q16659
+04:01:02,451 root INFO Vectorized protein P09769
+04:01:06,184 root INFO Vectorized protein P78368
+04:03:05,145 root INFO Vectorized protein Q9Y5S2
+04:03:17,62 root INFO Vectorized protein Q8NE63
+04:03:20,788 root INFO Vectorized protein P10826
+04:03:22,959 root INFO Vectorized protein P43166
+04:03:24,135 root INFO Vectorized protein P47929
+04:03:28,737 root INFO Vectorized protein P07948
+04:03:31,669 root INFO Vectorized protein P17612
+04:04:45,204 root INFO Vectorized protein O95382
+04:05:38,345 root INFO Vectorized protein P80192
+04:05:49,806 root INFO Vectorized protein P16610
+04:06:03,250 root INFO Vectorized protein P10721
+04:06:14,988 root INFO Vectorized protein Q96L34
+04:06:19,588 root INFO Vectorized protein P36897
+04:07:24,827 root INFO Vectorized protein P14616
+04:08:27,423 root INFO Vectorized protein Q9H2G2
+04:08:36,347 root INFO Vectorized protein P15735
+04:08:39,689 root INFO Vectorized protein P45984
+04:08:53,367 root INFO Vectorized protein Q02779
+04:09:04,81 root INFO Vectorized protein P21127
+04:09:13,35 root INFO Vectorized protein P11362
+04:09:19,677 root INFO Vectorized protein Q13554
+04:09:33,792 root INFO Vectorized protein O00444
+04:09:45,338 root INFO Vectorized protein Q8NFD2
+04:09:54,733 root INFO Vectorized protein O15146
+04:09:59,140 root INFO Vectorized protein Q9NWZ3
+04:10:01,690 root INFO Vectorized protein P11802
+04:10:06,155 root INFO Vectorized protein Q86Y07
+04:10:11,492 root INFO Vectorized protein Q15835
+04:10:15,964 root INFO Vectorized protein Q13043
+04:10:22,702 root INFO Vectorized protein Q13546
+04:12:00,802 root INFO Vectorized protein O00750
+04:12:11,866 root INFO Vectorized protein P43405
+04:12:16,805 root INFO Vectorized protein Q13177
+04:12:21,162 root INFO Vectorized protein Q86UX6
+04:12:35,506 root INFO Vectorized protein Q2M2I8
+04:12:56,548 root INFO Vectorized protein Q9UF33
+04:13:08,5 root INFO Vectorized protein Q9UPE1
+04:13:43,234 root INFO Vectorized protein P09619
+04:13:56,372 root INFO Vectorized protein Q92630
+04:14:00,772 root INFO Vectorized protein Q96NX5
+04:14:04,415 root INFO Vectorized protein Q15831
+04:14:07,932 root INFO Vectorized protein Q9NY57
+04:14:12,657 root INFO Vectorized protein Q00537
+04:14:21,460 root INFO Vectorized protein Q12851
+04:14:30,230 root INFO Vectorized protein P57078
+04:14:35,966 root INFO Vectorized protein Q9Y616
+04:14:39,316 root INFO Vectorized protein Q8WU08
+04:14:44,9 root INFO Vectorized protein Q13705
+04:14:48,157 root INFO Vectorized protein Q9Y2H1
+04:14:52,288 root INFO Vectorized protein O94921
+04:14:56,898 root INFO Vectorized protein Q04771
+04:15:01,655 root INFO Vectorized protein P42681
+04:15:04,175 root INFO Vectorized protein Q9UQB9
+04:15:10,441 root INFO Vectorized protein Q9H4B4
+04:15:27,836 root INFO Vectorized protein Q07912
+04:15:42,990 root INFO Vectorized protein Q16512
+04:15:55,113 root INFO Vectorized protein Q12852
+04:15:58,657 root INFO Vectorized protein P25103
+04:16:04,211 root INFO Vectorized protein P41743
+04:16:18,563 root INFO Vectorized protein Q14289
+04:16:25,956 root INFO Vectorized protein Q15759
+04:16:30,553 root INFO Vectorized protein P15823
+04:16:37,612 root INFO Vectorized protein Q15349
+04:16:43,695 root INFO Vectorized protein P53671
+04:16:57,400 root INFO Vectorized protein P54764
+04:17:06,532 root INFO Vectorized protein P06241
+04:17:09,861 root INFO Vectorized protein Q16816
+04:17:13,386 root INFO Vectorized protein P07550
+04:17:15,799 root INFO Vectorized protein Q8TDX7
+04:17:18,825 root INFO Vectorized protein P50750
+04:17:31,582 root INFO Vectorized protein O75460
+04:17:45,264 root INFO Vectorized protein Q9H2K8
+04:17:49,835 root INFO Vectorized protein Q9BXA7
+04:17:53,765 root INFO Vectorized protein P13631
+04:19:12,301 root INFO Vectorized protein P53355
+04:19:24,158 root INFO Vectorized protein Q16620
+04:19:27,235 root INFO Vectorized protein P52564
+04:19:32,330 root INFO Vectorized protein Q9BVS4
+04:19:35,870 root INFO Vectorized protein P49674
+04:19:39,857 root INFO Vectorized protein Q13882
+04:19:44,587 root INFO Vectorized protein O14730
+04:19:46,817 root INFO Vectorized protein Q00535
+04:19:55,864 root INFO Vectorized protein Q16288
+04:20:08,703 root INFO Vectorized protein O14936
+04:20:29,613 root INFO Vectorized protein Q8IYT8
+04:20:38,595 root INFO Vectorized protein P61075
+04:21:43,885 root INFO Vectorized protein Q9UKE5
+04:21:53,599 root INFO Vectorized protein P37023
+04:21:55,463 root INFO Vectorized protein P00915
+04:22:47,961 root INFO Vectorized protein Q9H2X6
+04:25:19,130 root INFO Vectorized protein Q15746
+04:25:32,361 root INFO Vectorized protein Q8N568
+04:25:37,648 root INFO Vectorized protein P20309
+04:25:41,858 root INFO Vectorized protein Q9UQM7
+04:25:45,87 root INFO Vectorized protein P49137
+04:25:52,320 root INFO Vectorized protein Q05655
+04:25:58,959 root INFO Vectorized protein Q8NI60
+04:26:06,309 root INFO Vectorized protein Q14164
+04:26:10,356 root INFO Vectorized protein P10276
+04:26:11,529 root INFO Vectorized protein P09382
+04:26:16,216 root INFO Vectorized protein Q9UBE8
+04:26:19,842 root INFO Vectorized protein Q9P289
+04:26:24,411 root INFO Vectorized protein P42679
+04:26:29,972 root INFO Vectorized protein Q8IVW4
+04:27:19,24 root INFO Vectorized protein P16234
+13:22:47,72 root INFO Vectorized protein P51955
+13:24:22,93 root INFO Vectorized protein P35916
