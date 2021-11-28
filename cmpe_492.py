@@ -169,9 +169,9 @@ def train_protein_similarity_model_SVR(train_X, train_y):
     
     clf = svm.LinearSVR(max_iter=10e6)
 
+    # TODO(): Don't belong here, move to data preparation step.
     X = []
     y = []
-
     logging.info('Finalizing X, y for training.')
     for protein_pair, vector in train_X.items():
         X.append(vector)
