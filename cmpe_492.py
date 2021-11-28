@@ -230,7 +230,7 @@ logging.info("Dumping all model data...")
 
 logging.info("Completed!")
 
-similarity_model = train_protein_similarity_model_SVM(train_X, train_y)
+similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
 correctly_predicted_count = test_model(test_X, test_y, similarity_model)
 
 
