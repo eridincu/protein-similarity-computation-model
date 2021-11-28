@@ -894,3 +894,1738 @@
 21:26:49,230 root INFO Vectorized protein O95931
 21:26:52,706 root INFO Vectorized protein O00257
 21:26:52,727 root INFO Saving vectorized proteins to proteins.json
+13:49:19,286 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:20,158 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+13:49:20,166 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:20,726 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:49:20,877 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:21,435 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+13:49:21,438 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:21,987 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+13:49:21,992 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:22,539 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+13:49:22,542 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:23,104 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+13:49:23,106 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:23,661 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+13:49:23,664 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:24,208 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+13:49:24,212 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:24,861 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:49:24,866 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:25,499 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:49:25,531 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:26,78 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:49:26,99 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:26,650 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+13:49:34,214 root INFO Similarity matrix is obtained.
+13:49:56,11 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:56,565 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+13:49:56,569 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:57,130 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:49:57,184 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:57,822 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+13:49:57,826 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:58,373 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+13:49:58,376 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:58,938 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+13:49:58,941 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:49:59,577 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+13:49:59,580 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:50:00,142 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+13:50:00,144 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:50:00,698 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+13:50:00,701 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:50:01,262 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:50:01,267 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:50:01,817 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:50:01,821 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:50:02,382 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+13:50:02,397 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+13:50:02,960 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+13:50:07,99 root INFO Similarity matrix is obtained.
+13:50:07,101 root INFO Starting vectorizing proteins.
+13:50:11,21 root INFO Vectorized protein Q01959
+13:50:17,655 root INFO Vectorized protein Q9UPZ9
+13:50:20,49 root INFO Vectorized protein P09038
+13:50:23,111 root INFO Vectorized protein P45985
+13:50:30,764 root INFO Vectorized protein Q16832
+13:50:38,930 root INFO Vectorized protein P29317
+13:50:42,168 root INFO Vectorized protein Q00536
+13:50:49,645 root INFO Vectorized protein Q8TD19
+13:50:53,672 root INFO Vectorized protein Q9H093
+13:51:02,30 root INFO Vectorized protein P36888
+13:51:04,411 root INFO Vectorized protein P79218
+13:51:13,315 root INFO Vectorized protein P29323
+13:51:17,900 root INFO Vectorized protein O60331
+13:51:20,719 root INFO Vectorized protein P49841
+13:51:39,685 root INFO Vectorized protein P35968
+13:51:45,723 root INFO Vectorized protein P15056
+13:51:49,878 root INFO Vectorized protein P20794
+13:51:55,788 root INFO Vectorized protein Q16659
+13:51:59,563 root INFO Vectorized protein P09769
+13:52:02,549 root INFO Vectorized protein P78368
+13:52:50,324 root INFO Vectorized protein Q9Y5S2
+13:52:58,975 root INFO Vectorized protein Q8NE63
+13:53:02,64 root INFO Vectorized protein P10826
+13:53:03,795 root INFO Vectorized protein P43166
+13:53:04,737 root INFO Vectorized protein P47929
+13:53:08,872 root INFO Vectorized protein P07948
+13:53:11,507 root INFO Vectorized protein P17612
+13:53:27,158 root INFO Vectorized protein O95382
+13:53:37,843 root INFO Vectorized protein P80192
+13:53:40,427 root INFO Vectorized protein P16610
+13:53:48,664 root INFO Vectorized protein P10721
+13:53:54,454 root INFO Vectorized protein Q96L34
+13:53:57,981 root INFO Vectorized protein P36897
+13:54:10,345 root INFO Vectorized protein P14616
+13:54:22,565 root INFO Vectorized protein Q9H2G2
+13:54:25,177 root INFO Vectorized protein P15735
+13:54:27,755 root INFO Vectorized protein P45984
+13:54:35,98 root INFO Vectorized protein Q02779
+13:54:40,680 root INFO Vectorized protein P21127
+13:54:46,692 root INFO Vectorized protein P11362
+13:54:51,392 root INFO Vectorized protein Q13554
+13:54:58,980 root INFO Vectorized protein O00444
+13:55:04,471 root INFO Vectorized protein Q8NFD2
+13:55:11,19 root INFO Vectorized protein O15146
+13:55:13,908 root INFO Vectorized protein Q9NWZ3
+13:55:15,656 root INFO Vectorized protein P11802
+13:55:18,752 root INFO Vectorized protein Q86Y07
+13:55:22,544 root INFO Vectorized protein Q15835
+13:55:25,684 root INFO Vectorized protein Q13043
+13:55:30,512 root INFO Vectorized protein Q13546
+13:55:57,340 root INFO Vectorized protein O00750
+13:56:04,513 root INFO Vectorized protein P43405
+13:56:07,973 root INFO Vectorized protein Q13177
+13:56:11,239 root INFO Vectorized protein Q86UX6
+13:56:18,852 root INFO Vectorized protein Q2M2I8
+13:56:27,306 root INFO Vectorized protein Q9UF33
+13:56:30,877 root INFO Vectorized protein Q9UPE1
+13:56:40,27 root INFO Vectorized protein P09619
+13:56:44,96 root INFO Vectorized protein Q92630
+13:56:47,9 root INFO Vectorized protein Q96NX5
+13:56:49,523 root INFO Vectorized protein Q15831
+13:56:51,926 root INFO Vectorized protein Q9NY57
+13:56:55,187 root INFO Vectorized protein Q00537
+13:57:01,546 root INFO Vectorized protein Q12851
+13:57:08,8 root INFO Vectorized protein P57078
+13:57:12,104 root INFO Vectorized protein Q9Y616
+13:57:14,571 root INFO Vectorized protein Q8WU08
+13:57:18,94 root INFO Vectorized protein Q13705
+13:57:21,5 root INFO Vectorized protein Q9Y2H1
+13:57:23,870 root INFO Vectorized protein O94921
+13:57:27,17 root INFO Vectorized protein Q04771
+13:57:30,211 root INFO Vectorized protein P42681
+13:57:31,864 root INFO Vectorized protein Q9UQB9
+13:57:36,88 root INFO Vectorized protein Q9H4B4
+13:57:44,127 root INFO Vectorized protein Q07912
+13:57:51,299 root INFO Vectorized protein Q16512
+13:57:57,539 root INFO Vectorized protein Q12852
+13:57:59,956 root INFO Vectorized protein P25103
+13:58:03,807 root INFO Vectorized protein P41743
+13:58:11,633 root INFO Vectorized protein Q14289
+13:58:13,880 root INFO Vectorized protein Q15759
+13:58:17,11 root INFO Vectorized protein P15823
+13:58:22,638 root INFO Vectorized protein Q15349
+13:58:27,447 root INFO Vectorized protein P53671
+13:58:35,432 root INFO Vectorized protein P54764
+13:58:38,812 root INFO Vectorized protein P06241
+13:58:41,28 root INFO Vectorized protein Q16816
+13:58:43,465 root INFO Vectorized protein P07550
+13:58:45,105 root INFO Vectorized protein Q8TDX7
+13:58:47,118 root INFO Vectorized protein P50750
+13:58:54,548 root INFO Vectorized protein O75460
+13:59:01,249 root INFO Vectorized protein Q9H2K8
+13:59:03,404 root INFO Vectorized protein Q9BXA7
+13:59:06,47 root INFO Vectorized protein P13631
+13:59:19,882 root INFO Vectorized protein P53355
+13:59:25,774 root INFO Vectorized protein Q16620
+13:59:27,696 root INFO Vectorized protein P52564
+13:59:31,115 root INFO Vectorized protein Q9BVS4
+13:59:33,507 root INFO Vectorized protein P49674
+13:59:36,118 root INFO Vectorized protein Q13882
+13:59:39,137 root INFO Vectorized protein O14730
+13:59:40,723 root INFO Vectorized protein Q00535
+13:59:46,593 root INFO Vectorized protein Q16288
+13:59:53,482 root INFO Vectorized protein O14936
+14:00:01,665 root INFO Vectorized protein Q8IYT8
+14:00:03,415 root INFO Vectorized protein P61075
+14:00:16,79 root INFO Vectorized protein Q9UKE5
+14:00:19,910 root INFO Vectorized protein P37023
+14:00:21,517 root INFO Vectorized protein P00915
+14:00:32,447 root INFO Vectorized protein Q9H2X6
+14:01:45,140 root INFO Vectorized protein Q15746
+14:01:56,35 root INFO Vectorized protein Q8N568
+14:02:00,734 root INFO Vectorized protein P20309
+14:02:04,170 root INFO Vectorized protein Q9UQM7
+14:02:06,855 root INFO Vectorized protein P49137
+14:02:11,586 root INFO Vectorized protein Q05655
+14:02:15,917 root INFO Vectorized protein Q8NI60
+14:02:20,910 root INFO Vectorized protein Q14164
+14:02:23,627 root INFO Vectorized protein P10276
+14:02:24,413 root INFO Vectorized protein P09382
+14:02:27,681 root INFO Vectorized protein Q9UBE8
+14:02:30,109 root INFO Vectorized protein Q9P289
+14:02:33,237 root INFO Vectorized protein P42679
+14:02:37,83 root INFO Vectorized protein Q8IVW4
+14:02:46,58 root INFO Vectorized protein P16234
+14:02:48,786 root INFO Vectorized protein P51955
+14:03:01,620 root INFO Vectorized protein P35916
+14:03:04,772 root INFO Vectorized protein O14757
+14:03:06,52 root INFO Vectorized protein P15692
+14:03:07,867 root INFO Vectorized protein P29275
+14:03:10,967 root INFO Vectorized protein O00238
+14:03:15,600 root INFO Vectorized protein Q9C098
+14:03:23,285 root INFO Vectorized protein P07333
+14:03:25,304 root INFO Vectorized protein P48729
+14:03:30,794 root INFO Vectorized protein Q9NRH2
+14:03:37,117 root INFO Vectorized protein P29376
+14:03:41,478 root INFO Vectorized protein O60285
+14:03:47,356 root INFO Vectorized protein P21802
+14:04:00,183 root INFO Vectorized protein P08069
+14:04:02,153 root INFO Vectorized protein O00214
+14:04:09,51 root INFO Vectorized protein Q08345
+14:04:11,392 root INFO Vectorized protein P30872
+14:04:34,526 root INFO Vectorized protein Q9P2K8
+14:04:43,296 root INFO Vectorized protein Q9NQU5
+14:04:48,913 root INFO Vectorized protein Q9P0L2
+14:04:52,108 root INFO Vectorized protein P23443
+14:04:57,930 root INFO Vectorized protein Q59H18
+14:04:59,909 root INFO Vectorized protein P19784
+14:05:03,127 root INFO Vectorized protein Q8TDR2
+14:05:06,632 root INFO Vectorized protein P0C1S8
+14:05:08,877 root INFO Vectorized protein P51144
+14:05:27,335 root INFO Vectorized protein Q9UM73
+14:05:34,555 root INFO Vectorized protein Q04759
+14:05:37,886 root INFO Vectorized protein P42685
+14:05:48,410 root INFO Vectorized protein P29597
+14:05:50,762 root INFO Vectorized protein P33533
+14:05:54,137 root INFO Vectorized protein Q8WTQ7
+14:05:58,527 root INFO Vectorized protein Q96SB4
+14:06:01,138 root INFO Vectorized protein Q52WX2
+14:06:04,437 root INFO Vectorized protein O96017
+14:06:07,309 root INFO Vectorized protein Q9Y243
+14:06:09,781 root INFO Vectorized protein P45983
+14:06:15,657 root INFO Vectorized protein P16591
+14:06:19,109 root INFO Vectorized protein Q13153
+14:06:22,440 root INFO Vectorized protein Q9UEW8
+14:06:36,542 root INFO Vectorized protein O75747
+14:06:49,99 root INFO Vectorized protein P17948
+14:06:52,538 root INFO Vectorized protein P28702
+14:06:57,636 root INFO Vectorized protein O15075
+14:08:21,119 root INFO Vectorized protein O14578
+14:08:34,20 root INFO Vectorized protein Q9NYY3
+14:08:36,298 root INFO Vectorized protein P53778
+14:08:50,93 root INFO Vectorized protein O75116
+14:08:57,952 root INFO Vectorized protein P54760
+14:09:03,26 root INFO Vectorized protein Q8IWQ3
+14:09:05,434 root INFO Vectorized protein P13945
+14:09:14,950 root INFO Vectorized protein O95835
+14:09:18,456 root INFO Vectorized protein O43353
+14:09:21,287 root INFO Vectorized protein Q9HAZ1
+14:09:26,459 root INFO Vectorized protein P51812
+14:09:29,977 root INFO Vectorized protein Q96D53
+14:09:39,798 root INFO Vectorized protein P23458
+14:09:49,886 root INFO Vectorized protein Q9NSY1
+14:09:52,919 root INFO Vectorized protein P31751
+14:09:55,734 root INFO Vectorized protein Q15208
+14:10:01,230 root INFO Vectorized protein Q13627
+14:10:03,664 root INFO Vectorized protein P11309
+14:10:06,922 root INFO Vectorized protein P36894
+14:10:12,29 root INFO Vectorized protein P24723
+14:10:21,746 root INFO Vectorized protein O43283
+14:10:24,806 root INFO Vectorized protein O00182
+14:10:28,747 root INFO Vectorized protein Q13131
+14:10:32,755 root INFO Vectorized protein P32298
+14:10:35,816 root INFO Vectorized protein Q9Y6M4
+14:10:39,198 root INFO Vectorized protein P49760
+14:10:42,783 root INFO Vectorized protein O95747
+14:10:45,562 root INFO Vectorized protein P19793
+14:10:46,982 root INFO Vectorized protein P00918
+14:20:15,801 root INFO Vectorized protein Q5S007
+14:20:29,152 root INFO Vectorized protein P70536
+14:20:42,3 root INFO Vectorized protein Q56UN5
+14:20:44,940 root INFO Vectorized protein Q8IY84
+14:20:49,603 root INFO Vectorized protein Q13976
+14:20:53,440 root INFO Vectorized protein Q13555
+14:20:56,529 root INFO Vectorized protein Q16566
+14:20:58,822 root INFO Vectorized protein O15264
+14:21:05,616 root INFO Vectorized protein P33981
+14:21:09,940 root INFO Vectorized protein Q9BQI3
+14:21:16,763 root INFO Vectorized protein Q8IVH8
+14:21:18,837 root INFO Vectorized protein P46734
+14:21:21,623 root INFO Vectorized protein P48443
+14:21:24,799 root INFO Vectorized protein Q99640
+14:21:27,944 root INFO Vectorized protein P62343
+14:21:34,838 root INFO Vectorized protein Q15139
+14:21:37,32 root INFO Vectorized protein Q00788
+14:21:43,35 root INFO Vectorized protein Q92918
+14:21:46,572 root INFO Vectorized protein Q8TD08
+14:21:48,709 root INFO Vectorized protein P28482
+14:21:51,352 root INFO Vectorized protein O00506
+14:21:53,330 root INFO Vectorized protein Q8N752
+14:21:56,739 root INFO Vectorized protein Q9BUB5
+14:22:03,628 root INFO Vectorized protein Q13164
+14:22:11,828 root INFO Vectorized protein Q12866
+14:22:14,599 root INFO Vectorized protein P48730
+14:22:23,196 root INFO Vectorized protein O76039
+14:22:25,713 root INFO Vectorized protein P0C264
+14:22:30,313 root INFO Vectorized protein P42680
+14:22:39,504 root INFO Vectorized protein O00329
+14:22:47,935 root INFO Vectorized protein O94806
+14:22:50,819 root INFO Vectorized protein O14733
+14:23:03,38 root INFO Vectorized protein O14976
+14:23:06,308 root INFO Vectorized protein P31749
+14:23:14,948 root INFO Vectorized protein P42338
+14:23:20,797 root INFO Vectorized protein P04629
+14:23:23,731 root INFO Vectorized protein Q9HBH9
+14:23:38,514 root INFO Vectorized protein P06213
+14:23:42,365 root INFO Vectorized protein P07947
+14:23:45,146 root INFO Vectorized protein Q8TBX8
+14:23:51,686 root INFO Vectorized protein P51957
+14:23:53,253 root INFO Vectorized protein Q8N1Q1
+14:24:05,335 root INFO Vectorized protein Q15303
+14:24:21,574 root INFO Vectorized protein Q13233
+14:24:25,749 root INFO Vectorized protein P49336
+14:24:28,148 root INFO Vectorized protein Q86YV6
+14:24:37,881 root INFO Vectorized protein P00519
+14:24:40,980 root INFO Vectorized protein P49759
+14:24:45,58 root INFO Vectorized protein P43403
+14:24:48,999 root INFO Vectorized protein P53350
+14:25:11,515 root INFO Vectorized protein Q8NEV4
+14:25:20,69 root INFO Vectorized protein Q09013
+14:25:28,838 root INFO Vectorized protein Q13873
+14:25:31,36 root INFO Vectorized protein P51817
+14:25:33,867 root INFO Vectorized protein P68370
+14:25:38,372 root INFO Vectorized protein Q9Y463
+14:25:44,675 root INFO Vectorized protein Q16584
+14:25:46,800 root INFO Vectorized protein Q14012
+14:25:57,445 root INFO Vectorized protein Q86Z02
+14:26:02,145 root INFO Vectorized protein P51813
+14:26:14,333 root INFO Vectorized protein Q9NRP7
+14:26:31,190 root INFO Vectorized protein Q6DT37
+14:26:37,907 root INFO Vectorized protein O75582
+14:26:40,218 root INFO Vectorized protein Q8IU85
+14:26:48,4 root INFO Vectorized protein Q7L7X3
+14:26:55,781 root INFO Vectorized protein Q16513
+14:27:00,253 root INFO Vectorized protein Q14680
+14:27:03,794 root INFO Vectorized protein P23944
+14:27:11,623 root INFO Vectorized protein P29320
+14:27:21,480 root INFO Vectorized protein P35590
+14:27:30,614 root INFO Vectorized protein Q9NRM7
+14:27:34,687 root INFO Vectorized protein P23975
+14:27:38,580 root INFO Vectorized protein Q9BRS2
+14:27:44,52 root INFO Vectorized protein Q86UE8
+14:27:47,262 root INFO Vectorized protein Q9BWU1
+14:27:50,995 root INFO Vectorized protein Q9H1R3
+14:27:54,34 root INFO Vectorized protein Q9H3Y6
+14:27:56,171 root INFO Vectorized protein Q70I53
+14:27:58,530 root INFO Vectorized protein O14965
+14:28:01,624 root INFO Vectorized protein Q13557
+14:28:04,725 root INFO Vectorized protein Q96BR1
+14:28:08,867 root INFO Vectorized protein Q9Y2U5
+14:28:10,865 root INFO Vectorized protein O43570
+14:28:14,178 root INFO Vectorized protein P28704
+14:28:19,660 root INFO Vectorized protein O75676
+14:28:33,25 root INFO Vectorized protein P08581
+14:28:38,826 root INFO Vectorized protein Q9NYL2
+14:28:39,864 root INFO Vectorized protein P05230
+14:28:47,635 root INFO Vectorized protein P29322
+14:28:49,492 root INFO Vectorized protein Q00526
+14:28:52,2 root INFO Vectorized protein P41240
+14:28:54,884 root INFO Vectorized protein Q8IW41
+14:29:12,366 root INFO Vectorized protein Q14004
+14:29:18,370 root INFO Vectorized protein P27448
+14:31:43,856 root INFO Vectorized protein P08922
+14:32:09,320 root INFO Vectorized protein O95819
+14:32:12,982 root INFO Vectorized protein P27037
+14:32:16,725 root INFO Vectorized protein Q9BYT3
+14:32:21,512 root INFO Vectorized protein P53667
+14:32:23,704 root INFO Vectorized protein P47747
+14:32:26,161 root INFO Vectorized protein P68400
+14:32:30,68 root INFO Vectorized protein P31152
+14:32:36,232 root INFO Vectorized protein Q13237
+14:32:41,562 root INFO Vectorized protein Q9UK32
+14:32:50,566 root INFO Vectorized protein P42336
+14:32:56,304 root INFO Vectorized protein P57059
+14:32:58,701 root INFO Vectorized protein P36507
+14:33:00,869 root INFO Vectorized protein Q9UIK4
+14:33:04,770 root INFO Vectorized protein O96013
+14:33:09,753 root INFO Vectorized protein P78362
+14:33:14,438 root INFO Vectorized protein Q13470
+14:33:18,459 root INFO Vectorized protein O43318
+14:33:25,429 root INFO Vectorized protein Q06418
+14:33:32,125 root INFO Vectorized protein Q9BZL6
+14:33:44,890 root INFO Vectorized protein P21860
+14:33:46,873 root INFO Vectorized protein Q86V86
+14:33:49,998 root INFO Vectorized protein P36896
+14:33:51,671 root INFO Vectorized protein P24941
+14:33:57,273 root INFO Vectorized protein Q9UQ88
+14:34:05,738 root INFO Vectorized protein Q05397
+14:34:07,923 root INFO Vectorized protein Q96GD4
+14:34:16,544 root INFO Vectorized protein O15197
+14:34:19,87 root INFO Vectorized protein Q02750
+14:34:20,937 root INFO Vectorized protein Q9Y2D0
+14:34:33,961 root INFO Vectorized protein Q8N4C8
+14:34:37,6 root INFO Vectorized protein P43140
+14:34:40,547 root INFO Vectorized protein P19525
+14:34:43,682 root INFO Vectorized protein P51956
+14:34:47,526 root INFO Vectorized protein P08483
+14:34:59,15 root INFO Vectorized protein Q96PY6
+14:35:03,3 root INFO Vectorized protein Q96RR4
+14:35:08,521 root INFO Vectorized protein O14920
+14:35:10,266 root INFO Vectorized protein O75716
+14:35:13,329 root INFO Vectorized protein Q8N5S9
+14:35:18,636 root INFO Vectorized protein Q02156
+14:35:24,540 root INFO Vectorized protein P07332
+14:35:27,595 root INFO Vectorized protein P53779
+14:35:30,929 root INFO Vectorized protein P12931
+14:35:36,126 root INFO Vectorized protein Q15418
+14:35:38,479 root INFO Vectorized protein P27361
+14:35:50,967 root INFO Vectorized protein Q6ZN16
+14:35:53,839 root INFO Vectorized protein P08482
+14:36:06,418 root INFO Vectorized protein Q8WXR4
+14:36:10,167 root INFO Vectorized protein O75914
+14:36:16,77 root INFO Vectorized protein Q9UBF8
+14:36:18,183 root INFO Vectorized protein P22694
+14:36:23,203 root INFO Vectorized protein Q9P286
+14:36:27,888 root INFO Vectorized protein P04049
+14:36:30,51 root INFO Vectorized protein Q16539
+14:36:54,12 root INFO Vectorized protein Q9Y6R4
+14:37:00,455 root INFO Vectorized protein P30874
+14:37:03,748 root INFO Vectorized protein P08631
+14:37:09,155 root INFO Vectorized protein P51617
+14:37:12,442 root INFO Vectorized protein P06239
+14:37:22,135 root INFO Vectorized protein O60674
+14:37:25,518 root INFO Vectorized protein P37231
+14:37:28,600 root INFO Vectorized protein Q13163
+14:37:41,823 root INFO Vectorized protein Q13464
+14:37:49,511 root INFO Vectorized protein O94804
+14:37:58,88 root INFO Vectorized protein Q13523
+14:38:01,253 root INFO Vectorized protein P16177
+14:38:04,476 root INFO Vectorized protein Q13188
+14:38:06,880 root INFO Vectorized protein P50613
+14:38:11,643 root INFO Vectorized protein Q08881
+14:38:20,83 root INFO Vectorized protein P54753
+14:38:24,811 root INFO Vectorized protein Q99759
+14:38:32,719 root INFO Vectorized protein P54762
+14:38:37,804 root INFO Vectorized protein P57058
+14:38:51,58 root INFO Vectorized protein Q99683
+14:38:52,266 root INFO Vectorized protein P83916
+14:38:57,812 root INFO Vectorized protein Q7KZI7
+14:39:00,289 root INFO Vectorized protein P30543
+14:39:03,898 root INFO Vectorized protein Q99755
+14:39:05,354 root INFO Vectorized protein P17931
+14:39:09,665 root INFO Vectorized protein Q8NG66
+14:39:13,766 root INFO Vectorized protein Q15569
+14:39:17,417 root INFO Vectorized protein Q9UGN5
+14:39:21,741 root INFO Vectorized protein P30291
+14:39:30,133 root INFO Vectorized protein P54756
+14:39:35,402 root INFO Vectorized protein Q9UHD2
+14:39:38,290 root INFO Vectorized protein Q6PHR2
+14:39:40,772 root INFO Vectorized protein P32745
+14:39:43,567 root INFO Vectorized protein P11229
+14:39:47,118 root INFO Vectorized protein O15530
+14:39:50,270 root INFO Vectorized protein P51451
+14:39:59,314 root INFO Vectorized protein P48736
+14:40:07,353 root INFO Vectorized protein Q15375
+14:40:18,650 root INFO Vectorized protein Q9UL54
+14:40:32,342 root INFO Vectorized protein Q04912
+14:40:38,391 root INFO Vectorized protein P22455
+14:40:41,130 root INFO Vectorized protein Q96Q40
+14:40:42,884 root INFO Vectorized protein Q9P1W9
+14:41:11,791 root INFO Vectorized protein Q5VT25
+14:41:20,165 root INFO Vectorized protein P23280
+14:41:28,652 root INFO Vectorized protein Q6XUX3
+14:41:36,300 root INFO Vectorized protein Q32MK0
+14:41:44,541 root INFO Vectorized protein P21709
+14:41:54,783 root INFO Vectorized protein Q02763
+14:42:05,888 root INFO Vectorized protein P00533
+14:42:12,870 root INFO Vectorized protein P30530
+14:42:15,351 root INFO Vectorized protein P33535
+14:42:18,199 root INFO Vectorized protein P08588
+14:42:22,448 root INFO Vectorized protein P49761
+14:42:25,2 root INFO Vectorized protein Q8K4Z4
+14:42:34,446 root INFO Vectorized protein P52333
+14:42:37,408 root INFO Vectorized protein P30560
+14:42:46,805 root INFO Vectorized protein O75385
+14:42:49,509 root INFO Vectorized protein Q9UEE5
+14:42:55,112 root INFO Vectorized protein Q8TDC3
+14:42:57,605 root INFO Vectorized protein P29274
+14:43:01,177 root INFO Vectorized protein P37173
+14:43:06,750 root INFO Vectorized protein Q9UKI8
+14:43:12,245 root INFO Vectorized protein Q6P3R8
+14:43:14,880 root INFO Vectorized protein P78356
+14:43:22,322 root INFO Vectorized protein Q9H0K1
+14:43:25,413 root INFO Vectorized protein Q9Y6E0
+14:43:30,104 root INFO Vectorized protein P31645
+14:43:33,930 root INFO Vectorized protein P54646
+14:43:38,445 root INFO Vectorized protein P9WI81
+14:43:40,313 root INFO Vectorized protein P22748
+14:43:52,460 root INFO Vectorized protein P04626
+14:47:31,241 root INFO Vectorized protein P42345
+14:47:44,771 root INFO Vectorized protein P62965
+14:47:48,197 root INFO Vectorized protein P08172
+14:49:30,908 root INFO Vectorized protein P11799
+14:49:44,606 root INFO Vectorized protein P31389
+14:50:05,760 root INFO Vectorized protein Q9Y2H9
+14:50:21,209 root INFO Vectorized protein P42684
+14:50:24,637 root INFO Vectorized protein P49840
+14:50:27,741 root INFO Vectorized protein P10980
+14:52:06,73 root INFO Vectorized protein Q9BX84
+14:52:20,18 root INFO Vectorized protein O43172
+14:52:23,108 root INFO Vectorized protein Q92772
+14:52:35,919 root INFO Vectorized protein O60885
+14:52:45,306 root INFO Vectorized protein P07949
+14:52:47,815 root INFO Vectorized protein P31391
+14:52:52,302 root INFO Vectorized protein Q06187
+14:53:03,40 root INFO Vectorized protein Q9UBN7
+14:53:05,26 root INFO Vectorized protein Q9HC98
+14:53:07,703 root INFO Vectorized protein O43293
+14:53:13,440 root INFO Vectorized protein P22607
+14:53:15,698 root INFO Vectorized protein O94768
+14:53:18,448 root INFO Vectorized protein Q3U3Q1
+14:53:23,713 root INFO Vectorized protein O15111
+14:53:29,528 root INFO Vectorized protein P25440
+14:53:32,366 root INFO Vectorized protein P28700
+14:56:53,697 root INFO Vectorized protein Q92793
+14:57:05,861 root INFO Vectorized protein P0AF12
+14:57:08,823 root INFO Vectorized protein P21728
+14:57:10,854 root INFO Vectorized protein Q15391
+14:57:22,91 root INFO Vectorized protein Q9H422
+14:57:25,881 root INFO Vectorized protein Q9Y251
+14:57:28,506 root INFO Vectorized protein Q28044
+14:57:30,819 root INFO Vectorized protein P80370
+14:57:32,118 root INFO Vectorized protein B5Y1L0
+14:57:35,320 root INFO Vectorized protein P35368
+14:57:46,243 root INFO Vectorized protein Q9H2K2
+14:57:48,641 root INFO Vectorized protein P34975
+14:57:51,495 root INFO Vectorized protein P28705
+14:57:54,226 root INFO Vectorized protein Q9HCP0
+14:57:56,155 root INFO Vectorized protein P35218
+14:58:05,307 root INFO Vectorized protein P09874
+14:58:10,601 root INFO Vectorized protein P17252
+14:58:24,766 root INFO Vectorized protein Q6PL18
+14:58:27,296 root INFO Vectorized protein P41144
+14:58:29,938 root INFO Vectorized protein Q03181
+14:58:30,788 root INFO Vectorized protein P22935
+14:58:33,792 root INFO Vectorized protein Q13547
+14:58:35,449 root INFO Vectorized protein Q13126
+14:58:37,516 root INFO Vectorized protein P35346
+14:58:39,788 root INFO Vectorized protein P30559
+14:58:42,556 root INFO Vectorized protein Q9JI35
+14:58:45,595 root INFO Vectorized protein Q16790
+14:58:50,769 root INFO Vectorized protein Q15059
+14:58:53,854 root INFO Vectorized protein P31390
+14:58:57,24 root INFO Vectorized protein Q07869
+14:58:59,690 root INFO Vectorized protein P14416
+14:59:01,47 root INFO Vectorized protein Q5HFG2
+14:59:08,673 root INFO Vectorized protein Q8WUI4
+14:59:10,889 root INFO Vectorized protein Q9BY41
+14:59:19,206 root INFO Vectorized protein P11103
+14:59:20,141 root INFO Vectorized protein P05162
+14:59:22,891 root INFO Vectorized protein P11416
+14:59:24,842 root INFO Vectorized protein Q9ULX7
+14:59:26,729 root INFO Vectorized protein P30542
+14:59:29,577 root INFO Vectorized protein P18911
+14:59:32,540 root INFO Vectorized protein P22605
+14:59:34,62 root INFO Vectorized protein P07451
+14:59:36,521 root INFO Vectorized protein Q9HC52
+14:59:41,419 root INFO Vectorized protein P05771
+14:59:42,945 root INFO Vectorized protein O95931
+14:59:46,634 root INFO Vectorized protein O00257
+14:59:46,693 root INFO Saving vectorized proteins to proteins.json
+15:21:55,142 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:55,852 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:21:55,859 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:56,404 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:21:56,504 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:57,40 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+15:21:57,43 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:57,591 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+15:21:57,596 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:58,146 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+15:21:58,149 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:58,683 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+15:21:58,686 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:59,225 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+15:21:59,228 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:21:59,844 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:21:59,849 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:22:00,493 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:22:00,571 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:22:01,103 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:22:01,126 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:22:01,659 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:22:01,680 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:22:02,227 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+15:22:09,718 root INFO Similarity matrix is obtained.
+15:23:06,825 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:07,541 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:23:07,544 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:08,79 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:23:08,133 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:08,666 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+15:23:08,669 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:09,287 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+15:23:09,290 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:09,822 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+15:23:09,824 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:10,441 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+15:23:10,444 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:11,60 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+15:23:11,63 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:11,601 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:23:11,604 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:12,140 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:23:12,144 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:12,689 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:23:12,694 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:13,230 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:23:13,246 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:23:13,777 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+15:23:18,102 root INFO Similarity matrix is obtained.
+15:23:18,102 root INFO Starting vectorizing proteins.
+15:23:22,383 root INFO Vectorized protein Q01959
+15:23:27,233 root INFO Vectorized protein Q9UPZ9
+15:23:27,234 root INFO Saving vectorized proteins to proteins.json
+15:23:27,280 root INFO Vectorized all protein sequences.
+15:24:18,277 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:18,944 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:24:18,947 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:19,480 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:24:19,538 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:20,158 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+15:24:20,161 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:20,694 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+15:24:20,697 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:21,323 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+15:24:21,327 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:21,867 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+15:24:21,870 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:22,421 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+15:24:22,424 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:22,957 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:24:22,961 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:23,516 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:24:23,520 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:24,66 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:24:24,70 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:24,688 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:24:24,704 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:24:25,257 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+15:24:29,405 root INFO Similarity matrix is obtained.
+15:24:29,406 root INFO Proteins already vectorized.
+15:24:29,406 root INFO Splitting data...
+15:24:29,407 root INFO Preparing similarity score dictionary.
+15:24:30,90 root INFO Prepared similarity score dictionary.
+15:24:30,238 root INFO Splitted data.
+15:24:30,241 root INFO Train preparation:
+15:24:30,241 root INFO Preparing model data...
+15:25:41,125 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:41,730 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:25:41,734 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:42,286 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:25:42,340 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:42,892 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+15:25:42,895 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:43,452 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+15:25:43,455 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:43,985 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+15:25:43,988 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:44,604 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+15:25:44,607 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:45,222 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+15:25:45,225 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:45,757 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+15:25:45,760 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:46,295 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:25:46,299 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:46,848 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:25:46,853 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:47,409 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+15:25:47,425 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+15:25:47,960 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+15:25:52,185 root INFO Similarity matrix is obtained.
+15:25:52,187 root INFO Starting vectorizing proteins.
+15:25:56,370 root INFO Vectorized protein Q01959
+15:26:01,18 root INFO Vectorized protein Q9UPZ9
+15:26:02,652 root INFO Vectorized protein P09038
+15:26:05,103 root INFO Vectorized protein P45985
+15:26:11,587 root INFO Vectorized protein Q16832
+15:26:19,603 root INFO Vectorized protein P29317
+15:26:23,114 root INFO Vectorized protein Q00536
+15:26:31,341 root INFO Vectorized protein Q8TD19
+15:26:36,1 root INFO Vectorized protein Q9H093
+15:26:44,352 root INFO Vectorized protein P36888
+15:26:46,745 root INFO Vectorized protein P79218
+15:26:55,742 root INFO Vectorized protein P29323
+15:27:00,335 root INFO Vectorized protein O60331
+15:27:02,885 root INFO Vectorized protein P49841
+15:27:16,284 root INFO Vectorized protein P35968
+15:27:21,934 root INFO Vectorized protein P15056
+15:27:26,113 root INFO Vectorized protein P20794
+15:27:31,171 root INFO Vectorized protein Q16659
+15:27:34,486 root INFO Vectorized protein P09769
+15:27:37,32 root INFO Vectorized protein P78368
+15:28:16,334 root INFO Vectorized protein Q9Y5S2
+15:28:22,427 root INFO Vectorized protein Q8NE63
+15:28:25,533 root INFO Vectorized protein P10826
+15:28:27,125 root INFO Vectorized protein P43166
+15:28:27,893 root INFO Vectorized protein P47929
+15:28:30,992 root INFO Vectorized protein P07948
+15:28:33,44 root INFO Vectorized protein P17612
+15:28:44,821 root INFO Vectorized protein O95382
+15:28:54,56 root INFO Vectorized protein P80192
+15:28:56,457 root INFO Vectorized protein P16610
+15:29:03,929 root INFO Vectorized protein P10721
+15:29:09,344 root INFO Vectorized protein Q96L34
+15:29:12,769 root INFO Vectorized protein P36897
+15:29:27,618 root INFO Vectorized protein P14616
+15:29:39,56 root INFO Vectorized protein Q9H2G2
+15:29:41,724 root INFO Vectorized protein P15735
+15:29:44,288 root INFO Vectorized protein P45984
+15:29:51,845 root INFO Vectorized protein Q02779
+15:29:57,610 root INFO Vectorized protein P21127
+15:30:03,743 root INFO Vectorized protein P11362
+15:30:08,231 root INFO Vectorized protein Q13554
+15:30:15,892 root INFO Vectorized protein O00444
+15:30:21,332 root INFO Vectorized protein Q8NFD2
+15:30:27,800 root INFO Vectorized protein O15146
+15:30:30,688 root INFO Vectorized protein Q9NWZ3
+15:30:32,413 root INFO Vectorized protein P11802
+15:30:35,552 root INFO Vectorized protein Q86Y07
+15:30:39,144 root INFO Vectorized protein Q15835
+15:30:42,108 root INFO Vectorized protein Q13043
+15:30:46,710 root INFO Vectorized protein Q13546
+15:31:12,315 root INFO Vectorized protein O00750
+15:31:19,143 root INFO Vectorized protein P43405
+15:31:22,543 root INFO Vectorized protein Q13177
+15:31:25,561 root INFO Vectorized protein Q86UX6
+15:31:32,888 root INFO Vectorized protein Q2M2I8
+15:31:41,181 root INFO Vectorized protein Q9UF33
+15:31:44,845 root INFO Vectorized protein Q9UPE1
+15:31:54,403 root INFO Vectorized protein P09619
+15:31:58,579 root INFO Vectorized protein Q92630
+15:32:02,21 root INFO Vectorized protein Q96NX5
+15:32:04,822 root INFO Vectorized protein Q15831
+15:32:07,391 root INFO Vectorized protein Q9NY57
+15:32:10,659 root INFO Vectorized protein Q00537
+15:32:16,791 root INFO Vectorized protein Q12851
+15:32:22,816 root INFO Vectorized protein P57078
+15:32:26,759 root INFO Vectorized protein Q9Y616
+15:32:29,200 root INFO Vectorized protein Q8WU08
+15:32:32,600 root INFO Vectorized protein Q13705
+15:32:35,493 root INFO Vectorized protein Q9Y2H1
+15:32:38,275 root INFO Vectorized protein O94921
+15:32:41,604 root INFO Vectorized protein Q04771
+15:32:44,836 root INFO Vectorized protein P42681
+15:32:46,624 root INFO Vectorized protein Q9UQB9
+15:32:50,952 root INFO Vectorized protein Q9H4B4
+15:32:59,403 root INFO Vectorized protein Q07912
+15:33:06,920 root INFO Vectorized protein Q16512
+15:33:13,993 root INFO Vectorized protein Q12852
+15:33:16,573 root INFO Vectorized protein P25103
+15:33:20,688 root INFO Vectorized protein P41743
+15:33:29,451 root INFO Vectorized protein Q14289
+15:33:31,804 root INFO Vectorized protein Q15759
+15:33:35,184 root INFO Vectorized protein P15823
+15:33:40,376 root INFO Vectorized protein Q15349
+15:33:44,762 root INFO Vectorized protein P53671
+15:33:52,456 root INFO Vectorized protein P54764
+15:33:55,822 root INFO Vectorized protein P06241
+15:33:58,35 root INFO Vectorized protein Q16816
+15:34:00,340 root INFO Vectorized protein P07550
+15:34:01,912 root INFO Vectorized protein Q8TDX7
+15:34:03,974 root INFO Vectorized protein P50750
+15:34:11,354 root INFO Vectorized protein O75460
+15:34:18,38 root INFO Vectorized protein Q9H2K8
+15:34:20,198 root INFO Vectorized protein Q9BXA7
+15:34:22,923 root INFO Vectorized protein P13631
+15:34:36,723 root INFO Vectorized protein P53355
+15:34:42,749 root INFO Vectorized protein Q16620
+15:34:44,670 root INFO Vectorized protein P52564
+15:34:48,2 root INFO Vectorized protein Q9BVS4
+15:34:50,361 root INFO Vectorized protein P49674
+15:34:52,988 root INFO Vectorized protein Q13882
+15:34:56,130 root INFO Vectorized protein O14730
+15:34:57,819 root INFO Vectorized protein Q00535
+15:35:03,823 root INFO Vectorized protein Q16288
+15:35:10,889 root INFO Vectorized protein O14936
+15:35:18,905 root INFO Vectorized protein Q8IYT8
+15:35:20,639 root INFO Vectorized protein P61075
+15:35:34,279 root INFO Vectorized protein Q9UKE5
+15:35:37,624 root INFO Vectorized protein P37023
+15:35:39,151 root INFO Vectorized protein P00915
+15:35:49,628 root INFO Vectorized protein Q9H2X6
+15:37:00,765 root INFO Vectorized protein Q15746
+15:37:09,717 root INFO Vectorized protein Q8N568
+15:37:14,117 root INFO Vectorized protein P20309
+15:37:17,598 root INFO Vectorized protein Q9UQM7
+15:37:20,194 root INFO Vectorized protein P49137
+15:37:25,273 root INFO Vectorized protein Q05655
+15:37:30,40 root INFO Vectorized protein Q8NI60
+15:37:35,300 root INFO Vectorized protein Q14164
+15:37:38,241 root INFO Vectorized protein P10276
+15:37:39,102 root INFO Vectorized protein P09382
+15:37:42,401 root INFO Vectorized protein Q9UBE8
+15:37:44,961 root INFO Vectorized protein Q9P289
+15:37:48,81 root INFO Vectorized protein P42679
+15:37:51,960 root INFO Vectorized protein Q8IVW4
+15:38:01,87 root INFO Vectorized protein P16234
+15:38:03,884 root INFO Vectorized protein P51955
+15:38:16,760 root INFO Vectorized protein P35916
+15:38:19,852 root INFO Vectorized protein O14757
+15:38:21,207 root INFO Vectorized protein P15692
+15:38:23,22 root INFO Vectorized protein P29275
+15:38:26,180 root INFO Vectorized protein O00238
+15:38:30,610 root INFO Vectorized protein Q9C098
+15:38:38,161 root INFO Vectorized protein P07333
+15:38:40,168 root INFO Vectorized protein P48729
+15:38:45,792 root INFO Vectorized protein Q9NRH2
+15:38:52,353 root INFO Vectorized protein P29376
+15:38:57,11 root INFO Vectorized protein O60285
+15:39:03,198 root INFO Vectorized protein P21802
+15:39:16,490 root INFO Vectorized protein P08069
+15:39:18,688 root INFO Vectorized protein O00214
+15:39:25,740 root INFO Vectorized protein Q08345
+15:39:28,158 root INFO Vectorized protein P30872
+15:39:50,207 root INFO Vectorized protein Q9P2K8
+15:39:58,425 root INFO Vectorized protein Q9NQU5
+15:40:04,234 root INFO Vectorized protein Q9P0L2
+15:40:07,626 root INFO Vectorized protein P23443
+15:40:13,828 root INFO Vectorized protein Q59H18
+15:40:15,913 root INFO Vectorized protein P19784
+15:40:19,217 root INFO Vectorized protein Q8TDR2
+15:40:22,906 root INFO Vectorized protein P0C1S8
+15:40:25,167 root INFO Vectorized protein P51144
+15:40:44,630 root INFO Vectorized protein Q9UM73
+15:40:51,692 root INFO Vectorized protein Q04759
+15:40:54,877 root INFO Vectorized protein P42685
+15:41:05,232 root INFO Vectorized protein P29597
+15:41:07,635 root INFO Vectorized protein P33533
+15:41:10,911 root INFO Vectorized protein Q8WTQ7
+15:41:15,398 root INFO Vectorized protein Q96SB4
+15:41:17,936 root INFO Vectorized protein Q52WX2
+15:41:21,331 root INFO Vectorized protein O96017
+15:41:24,222 root INFO Vectorized protein Q9Y243
+15:41:26,707 root INFO Vectorized protein P45983
+15:41:32,604 root INFO Vectorized protein P16591
+15:41:36,56 root INFO Vectorized protein Q13153
+15:41:39,396 root INFO Vectorized protein Q9UEW8
+15:41:53,466 root INFO Vectorized protein O75747
+15:42:06,95 root INFO Vectorized protein P17948
+15:42:09,493 root INFO Vectorized protein P28702
+15:42:14,609 root INFO Vectorized protein O15075
+15:43:40,395 root INFO Vectorized protein O14578
+15:43:53,659 root INFO Vectorized protein Q9NYY3
+15:43:55,967 root INFO Vectorized protein P53778
+15:44:09,489 root INFO Vectorized protein O75116
+15:44:17,606 root INFO Vectorized protein P54760
+15:44:22,945 root INFO Vectorized protein Q8IWQ3
+15:44:25,447 root INFO Vectorized protein P13945
+15:44:35,45 root INFO Vectorized protein O95835
+15:44:38,604 root INFO Vectorized protein O43353
+15:44:41,501 root INFO Vectorized protein Q9HAZ1
+15:44:46,786 root INFO Vectorized protein P51812
+15:44:50,279 root INFO Vectorized protein Q96D53
+15:45:00,226 root INFO Vectorized protein P23458
+15:45:10,293 root INFO Vectorized protein Q9NSY1
+15:45:13,369 root INFO Vectorized protein P31751
+15:45:16,308 root INFO Vectorized protein Q15208
+15:45:21,797 root INFO Vectorized protein Q13627
+15:45:24,262 root INFO Vectorized protein P11309
+15:45:27,555 root INFO Vectorized protein P36894
+15:45:32,383 root INFO Vectorized protein P24723
+15:45:39,892 root INFO Vectorized protein O43283
+15:45:42,38 root INFO Vectorized protein O00182
+15:45:45,539 root INFO Vectorized protein Q13131
+15:45:49,241 root INFO Vectorized protein P32298
+15:45:51,919 root INFO Vectorized protein Q9Y6M4
+15:45:54,943 root INFO Vectorized protein P49760
+15:45:58,239 root INFO Vectorized protein O95747
+15:46:01,70 root INFO Vectorized protein P19793
+15:46:02,562 root INFO Vectorized protein P00918
+15:50:26,703 root INFO Vectorized protein Q5S007
+15:50:39,388 root INFO Vectorized protein P70536
+15:50:51,827 root INFO Vectorized protein Q56UN5
+15:50:54,569 root INFO Vectorized protein Q8IY84
+15:50:59,170 root INFO Vectorized protein Q13976
+15:51:02,781 root INFO Vectorized protein Q13555
+15:51:05,807 root INFO Vectorized protein Q16566
+15:51:08,145 root INFO Vectorized protein O15264
+15:51:14,666 root INFO Vectorized protein P33981
+15:51:19,162 root INFO Vectorized protein Q9BQI3
+15:51:26,699 root INFO Vectorized protein Q8IVH8
+15:51:28,914 root INFO Vectorized protein P46734
+15:51:31,772 root INFO Vectorized protein P48443
+15:51:34,830 root INFO Vectorized protein Q99640
+15:51:38,248 root INFO Vectorized protein P62343
+15:51:45,387 root INFO Vectorized protein Q15139
+15:51:47,643 root INFO Vectorized protein Q00788
+15:51:54,575 root INFO Vectorized protein Q92918
+15:51:58,596 root INFO Vectorized protein Q8TD08
+15:52:02,455 root INFO Vectorized protein P28482
+15:52:05,107 root INFO Vectorized protein O00506
+15:52:07,61 root INFO Vectorized protein Q8N752
+15:52:10,35 root INFO Vectorized protein Q9BUB5
+15:52:16,57 root INFO Vectorized protein Q13164
+15:52:24,555 root INFO Vectorized protein Q12866
+15:52:27,314 root INFO Vectorized protein P48730
+15:52:35,851 root INFO Vectorized protein O76039
+15:52:38,165 root INFO Vectorized protein P0C264
+15:52:42,337 root INFO Vectorized protein P42680
+15:52:51,24 root INFO Vectorized protein O00329
+15:52:57,885 root INFO Vectorized protein O94806
+15:53:00,565 root INFO Vectorized protein O14733
+15:53:13,99 root INFO Vectorized protein O14976
+15:53:16,308 root INFO Vectorized protein P31749
+15:53:25,219 root INFO Vectorized protein P42338
+15:53:31,165 root INFO Vectorized protein P04629
+15:53:34,139 root INFO Vectorized protein Q9HBH9
+15:53:47,765 root INFO Vectorized protein P06213
+15:53:51,454 root INFO Vectorized protein P07947
+15:53:54,94 root INFO Vectorized protein Q8TBX8
+15:54:00,596 root INFO Vectorized protein P51957
+15:54:02,214 root INFO Vectorized protein Q8N1Q1
+15:54:14,346 root INFO Vectorized protein Q15303
+15:54:31,256 root INFO Vectorized protein Q13233
+15:54:35,849 root INFO Vectorized protein P49336
+15:54:38,264 root INFO Vectorized protein Q86YV6
+15:54:48,3 root INFO Vectorized protein P00519
+15:54:51,262 root INFO Vectorized protein P49759
+15:54:55,433 root INFO Vectorized protein P43403
+15:54:59,498 root INFO Vectorized protein P53350
+15:55:22,421 root INFO Vectorized protein Q8NEV4
+15:55:30,657 root INFO Vectorized protein Q09013
+15:55:39,303 root INFO Vectorized protein Q13873
+15:55:41,528 root INFO Vectorized protein P51817
+15:55:44,289 root INFO Vectorized protein P68370
+15:55:48,585 root INFO Vectorized protein Q9Y463
+15:55:55,10 root INFO Vectorized protein Q16584
+15:55:57,224 root INFO Vectorized protein Q14012
+15:56:08,62 root INFO Vectorized protein Q86Z02
+15:56:13,117 root INFO Vectorized protein P51813
+15:56:25,731 root INFO Vectorized protein Q9NRP7
+15:56:42,371 root INFO Vectorized protein Q6DT37
+15:56:48,470 root INFO Vectorized protein O75582
+15:56:50,829 root INFO Vectorized protein Q8IU85
+15:56:58,930 root INFO Vectorized protein Q7L7X3
+15:57:06,912 root INFO Vectorized protein Q16513
+15:57:11,506 root INFO Vectorized protein Q14680
+15:57:15,175 root INFO Vectorized protein P23944
+15:57:22,994 root INFO Vectorized protein P29320
+15:57:32,935 root INFO Vectorized protein P35590
+15:57:42,664 root INFO Vectorized protein Q9NRM7
+15:57:46,820 root INFO Vectorized protein P23975
+15:57:50,531 root INFO Vectorized protein Q9BRS2
+15:57:56,12 root INFO Vectorized protein Q86UE8
+15:57:59,225 root INFO Vectorized protein Q9BWU1
+15:58:03,172 root INFO Vectorized protein Q9H1R3
+15:58:06,249 root INFO Vectorized protein Q9H3Y6
+15:58:08,529 root INFO Vectorized protein Q70I53
+15:58:10,964 root INFO Vectorized protein O14965
+15:58:14,699 root INFO Vectorized protein Q13557
+15:58:18,428 root INFO Vectorized protein Q96BR1
+15:58:22,638 root INFO Vectorized protein Q9Y2U5
+15:58:24,724 root INFO Vectorized protein O43570
+15:58:28,84 root INFO Vectorized protein P28704
+15:58:33,995 root INFO Vectorized protein O75676
+15:58:47,582 root INFO Vectorized protein P08581
+15:58:53,589 root INFO Vectorized protein Q9NYL2
+15:58:54,565 root INFO Vectorized protein P05230
+15:59:02,645 root INFO Vectorized protein P29322
+15:59:04,517 root INFO Vectorized protein Q00526
+15:59:07,204 root INFO Vectorized protein P41240
+15:59:10,163 root INFO Vectorized protein Q8IW41
+15:59:27,3 root INFO Vectorized protein Q14004
+15:59:34,182 root INFO Vectorized protein P27448
+16:02:02,515 root INFO Vectorized protein P08922
+16:02:25,857 root INFO Vectorized protein O95819
+16:02:29,239 root INFO Vectorized protein P27037
+16:02:32,513 root INFO Vectorized protein Q9BYT3
+16:02:37,172 root INFO Vectorized protein P53667
+16:02:39,440 root INFO Vectorized protein P47747
+16:02:41,847 root INFO Vectorized protein P68400
+16:02:45,712 root INFO Vectorized protein P31152
+16:02:51,266 root INFO Vectorized protein Q13237
+16:02:56,830 root INFO Vectorized protein Q9UK32
+16:03:05,756 root INFO Vectorized protein P42336
+16:03:11,586 root INFO Vectorized protein P57059
+16:03:14,22 root INFO Vectorized protein P36507
+16:03:16,146 root INFO Vectorized protein Q9UIK4
+16:03:19,909 root INFO Vectorized protein O96013
+16:03:24,688 root INFO Vectorized protein P78362
+16:03:29,208 root INFO Vectorized protein Q13470
+16:03:33,266 root INFO Vectorized protein O43318
+16:03:40,34 root INFO Vectorized protein Q06418
+16:03:46,717 root INFO Vectorized protein Q9BZL6
+16:03:59,615 root INFO Vectorized protein P21860
+16:04:01,797 root INFO Vectorized protein Q86V86
+16:04:04,850 root INFO Vectorized protein P36896
+16:04:06,596 root INFO Vectorized protein P24941
+16:04:13,69 root INFO Vectorized protein Q9UQ88
+16:04:22,201 root INFO Vectorized protein Q05397
+16:04:24,360 root INFO Vectorized protein Q96GD4
+16:04:32,403 root INFO Vectorized protein O15197
+16:04:34,858 root INFO Vectorized protein Q02750
+16:04:36,618 root INFO Vectorized protein Q9Y2D0
+16:04:49,32 root INFO Vectorized protein Q8N4C8
+16:04:51,990 root INFO Vectorized protein P43140
+16:04:55,496 root INFO Vectorized protein P19525
+16:04:58,770 root INFO Vectorized protein P51956
+16:05:02,592 root INFO Vectorized protein P08483
+16:05:14,328 root INFO Vectorized protein Q96PY6
+16:05:18,648 root INFO Vectorized protein Q96RR4
+16:05:24,423 root INFO Vectorized protein O14920
+16:05:26,251 root INFO Vectorized protein O75716
+16:05:29,551 root INFO Vectorized protein Q8N5S9
+16:05:34,923 root INFO Vectorized protein Q02156
+16:05:40,956 root INFO Vectorized protein P07332
+16:05:44,95 root INFO Vectorized protein P53779
+16:05:47,617 root INFO Vectorized protein P12931
+16:05:52,871 root INFO Vectorized protein Q15418
+16:05:55,123 root INFO Vectorized protein P27361
+16:06:07,482 root INFO Vectorized protein Q6ZN16
+16:06:10,546 root INFO Vectorized protein P08482
+16:06:23,289 root INFO Vectorized protein Q8WXR4
+16:06:27,48 root INFO Vectorized protein O75914
+16:06:32,975 root INFO Vectorized protein Q9UBF8
+16:06:35,15 root INFO Vectorized protein P22694
+16:06:39,961 root INFO Vectorized protein Q9P286
+16:06:44,242 root INFO Vectorized protein P04049
+16:06:46,389 root INFO Vectorized protein Q16539
+16:07:08,165 root INFO Vectorized protein Q9Y6R4
+16:07:15,803 root INFO Vectorized protein P30874
+16:07:19,161 root INFO Vectorized protein P08631
+16:07:24,236 root INFO Vectorized protein P51617
+16:07:27,607 root INFO Vectorized protein P06239
+16:07:37,709 root INFO Vectorized protein O60674
+16:07:41,268 root INFO Vectorized protein P37231
+16:07:44,99 root INFO Vectorized protein Q13163
+16:07:57,480 root INFO Vectorized protein Q13464
+16:08:06,57 root INFO Vectorized protein O94804
+16:08:15,41 root INFO Vectorized protein Q13523
+16:08:18,10 root INFO Vectorized protein P16177
+16:08:21,234 root INFO Vectorized protein Q13188
+16:08:23,373 root INFO Vectorized protein P50613
+16:08:27,910 root INFO Vectorized protein Q08881
+16:08:36,196 root INFO Vectorized protein P54753
+16:08:40,914 root INFO Vectorized protein Q99759
+16:08:48,883 root INFO Vectorized protein P54762
+16:08:54,15 root INFO Vectorized protein P57058
+16:09:07,295 root INFO Vectorized protein Q99683
+16:09:08,498 root INFO Vectorized protein P83916
+16:09:14,60 root INFO Vectorized protein Q7KZI7
+16:09:16,454 root INFO Vectorized protein P30543
+16:09:19,902 root INFO Vectorized protein Q99755
+16:09:21,270 root INFO Vectorized protein P17931
+16:09:25,593 root INFO Vectorized protein Q8NG66
+16:09:29,931 root INFO Vectorized protein Q15569
+16:09:33,667 root INFO Vectorized protein Q9UGN5
+16:09:38,64 root INFO Vectorized protein P30291
+16:09:46,273 root INFO Vectorized protein P54756
+16:09:51,419 root INFO Vectorized protein Q9UHD2
+16:09:54,351 root INFO Vectorized protein Q6PHR2
+16:09:56,881 root INFO Vectorized protein P32745
+16:09:59,725 root INFO Vectorized protein P11229
+16:10:03,424 root INFO Vectorized protein O15530
+16:10:06,635 root INFO Vectorized protein P51451
+16:10:16,766 root INFO Vectorized protein P48736
+16:10:25,939 root INFO Vectorized protein Q15375
+16:10:37,925 root INFO Vectorized protein Q9UL54
+16:10:52,662 root INFO Vectorized protein Q04912
+16:10:59,108 root INFO Vectorized protein P22455
+16:11:01,853 root INFO Vectorized protein Q96Q40
+16:11:03,752 root INFO Vectorized protein Q9P1W9
+16:11:37,578 root INFO Vectorized protein Q5VT25
+16:11:44,868 root INFO Vectorized protein P23280
+16:11:53,83 root INFO Vectorized protein Q6XUX3
+16:11:59,118 root INFO Vectorized protein Q32MK0
+16:12:07,359 root INFO Vectorized protein P21709
+16:12:17,853 root INFO Vectorized protein Q02763
+16:12:28,980 root INFO Vectorized protein P00533
+16:12:36,113 root INFO Vectorized protein P30530
+16:12:38,651 root INFO Vectorized protein P33535
+16:12:41,731 root INFO Vectorized protein P08588
+16:12:46,301 root INFO Vectorized protein P49761
+16:12:49,7 root INFO Vectorized protein Q8K4Z4
+16:12:58,618 root INFO Vectorized protein P52333
+16:13:01,366 root INFO Vectorized protein P30560
+16:13:10,319 root INFO Vectorized protein O75385
+16:13:12,915 root INFO Vectorized protein Q9UEE5
+16:13:19,1 root INFO Vectorized protein Q8TDC3
+16:13:21,761 root INFO Vectorized protein P29274
+16:13:25,643 root INFO Vectorized protein P37173
+16:13:31,322 root INFO Vectorized protein Q9UKI8
+16:13:36,474 root INFO Vectorized protein Q6P3R8
+16:13:39,59 root INFO Vectorized protein P78356
+16:13:46,458 root INFO Vectorized protein Q9H0K1
+16:13:49,373 root INFO Vectorized protein Q9Y6E0
+16:13:53,773 root INFO Vectorized protein P31645
+16:13:57,524 root INFO Vectorized protein P54646
+16:14:01,902 root INFO Vectorized protein P9WI81
+16:14:03,730 root INFO Vectorized protein P22748
+16:14:15,515 root INFO Vectorized protein P04626
+16:18:35,261 root INFO Vectorized protein P42345
+16:18:46,122 root INFO Vectorized protein P62965
+16:18:49,229 root INFO Vectorized protein P08172
+16:20:26,385 root INFO Vectorized protein P11799
+16:20:40,604 root INFO Vectorized protein P31389
+16:20:58,792 root INFO Vectorized protein Q9Y2H9
+16:21:11,605 root INFO Vectorized protein P42684
+16:21:14,645 root INFO Vectorized protein P49840
+16:21:17,443 root INFO Vectorized protein P10980
+16:22:51,336 root INFO Vectorized protein Q9BX84
+16:23:05,86 root INFO Vectorized protein O43172
+16:23:08,426 root INFO Vectorized protein Q92772
+16:23:21,291 root INFO Vectorized protein O60885
+16:23:30,775 root INFO Vectorized protein P07949
+16:23:33,515 root INFO Vectorized protein P31391
+16:23:38,88 root INFO Vectorized protein Q06187
+16:23:48,711 root INFO Vectorized protein Q9UBN7
+16:23:50,577 root INFO Vectorized protein Q9HC98
+16:23:53,161 root INFO Vectorized protein O43293
+16:23:58,782 root INFO Vectorized protein P22607
+16:24:00,986 root INFO Vectorized protein O94768
+16:24:03,814 root INFO Vectorized protein Q3U3Q1
+16:24:09,202 root INFO Vectorized protein O15111
+16:24:15,57 root INFO Vectorized protein P25440
+16:24:17,878 root INFO Vectorized protein P28700
+16:28:30,325 root INFO Vectorized protein Q92793
+16:28:42,107 root INFO Vectorized protein P0AF12
+16:28:44,969 root INFO Vectorized protein P21728
+16:28:46,919 root INFO Vectorized protein Q15391
+16:28:57,609 root INFO Vectorized protein Q9H422
+16:29:01,237 root INFO Vectorized protein Q9Y251
+16:29:03,731 root INFO Vectorized protein Q28044
+16:29:06,17 root INFO Vectorized protein P80370
+16:29:07,253 root INFO Vectorized protein B5Y1L0
+16:29:10,401 root INFO Vectorized protein P35368
+16:29:20,479 root INFO Vectorized protein Q9H2K2
+16:29:22,853 root INFO Vectorized protein P34975
+16:29:25,575 root INFO Vectorized protein P28705
+16:29:28,37 root INFO Vectorized protein Q9HCP0
+16:29:29,717 root INFO Vectorized protein P35218
+16:29:37,600 root INFO Vectorized protein P09874
+16:29:42,209 root INFO Vectorized protein P17252
+16:29:55,263 root INFO Vectorized protein Q6PL18
+16:29:57,678 root INFO Vectorized protein P41144
+16:30:00,367 root INFO Vectorized protein Q03181
+16:30:01,225 root INFO Vectorized protein P22935
+16:30:04,111 root INFO Vectorized protein Q13547
+16:30:05,725 root INFO Vectorized protein Q13126
+16:30:07,891 root INFO Vectorized protein P35346
+16:30:10,119 root INFO Vectorized protein P30559
+16:30:12,829 root INFO Vectorized protein Q9JI35
+16:30:15,759 root INFO Vectorized protein Q16790
+16:30:21,165 root INFO Vectorized protein Q15059
+16:30:24,417 root INFO Vectorized protein P31390
+16:30:27,457 root INFO Vectorized protein Q07869
+16:30:30,310 root INFO Vectorized protein P14416
+16:30:31,667 root INFO Vectorized protein Q5HFG2
+16:30:39,162 root INFO Vectorized protein Q8WUI4
+16:30:41,532 root INFO Vectorized protein Q9BY41
+16:30:49,489 root INFO Vectorized protein P11103
+16:30:50,389 root INFO Vectorized protein P05162
+16:30:53,42 root INFO Vectorized protein P11416
+16:30:54,988 root INFO Vectorized protein Q9ULX7
+16:30:57,158 root INFO Vectorized protein P30542
+16:31:00,267 root INFO Vectorized protein P18911
+16:31:03,133 root INFO Vectorized protein P22605
+16:31:04,760 root INFO Vectorized protein P07451
+16:31:06,997 root INFO Vectorized protein Q9HC52
+16:31:11,984 root INFO Vectorized protein P05771
+16:31:13,568 root INFO Vectorized protein O95931
+16:31:17,15 root INFO Vectorized protein O00257
+16:31:17,71 root INFO Saving vectorized proteins to proteins.json
+16:31:17,744 root INFO Vectorized all protein sequences.
+16:31:17,749 root INFO Splitting data...
+16:31:17,749 root INFO Preparing similarity score dictionary.
+16:31:18,607 root INFO Prepared similarity score dictionary.
+16:31:18,765 root INFO Splitted data.
+16:31:18,768 root INFO Train preparation:
+16:31:18,768 root INFO Preparing model data...
+16:31:18,786 root INFO Prepared model data.
+16:31:18,786 root INFO \Test preparation:
+16:31:18,786 root INFO Preparing model data...
+16:31:18,794 root INFO Prepared model data.
+16:31:18,794 root INFO Dumping all model data...
+16:32:30,622 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:31,454 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:32:31,464 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:31,997 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:32:32,250 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:32,791 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:32:32,798 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:33,334 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:32:33,342 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:33,963 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:32:33,968 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:34,504 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:32:34,510 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:35,127 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:32:35,134 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:35,775 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:32:35,782 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:36,316 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:32:36,327 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:36,868 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:32:36,890 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:37,462 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:32:37,496 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:32:38,46 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:32:45,717 root INFO Similarity matrix is obtained.
+16:32:45,944 root INFO Proteins already vectorized.
+16:32:45,945 root INFO Splitting data...
+16:32:45,945 root INFO Preparing similarity score dictionary.
+16:32:50,46 root INFO Prepared similarity score dictionary.
+16:32:50,578 root INFO Splitted data.
+16:32:50,581 root INFO Train preparation:
+16:32:50,582 root INFO Preparing model data...
+16:32:50,649 root INFO Prepared model data.
+16:32:50,649 root INFO \Test preparation:
+16:32:50,649 root INFO Preparing model data...
+16:32:50,711 root INFO Prepared model data.
+16:32:50,711 root INFO Dumping all model data...
+16:34:45,579 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:46,213 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:34:46,220 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:46,852 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:34:47,29 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:47,595 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:34:47,605 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:48,155 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:34:48,161 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:48,710 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:34:48,716 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:49,277 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:34:49,283 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:49,940 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:34:49,946 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:50,512 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:34:50,519 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:51,65 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:34:51,75 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:51,625 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:34:51,635 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:52,188 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:34:52,219 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:34:52,780 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:34:57,196 root INFO Similarity matrix is obtained.
+16:34:57,422 root INFO Proteins already vectorized.
+16:34:57,422 root INFO Splitting data...
+16:34:57,423 root INFO Preparing similarity score dictionary.
+16:35:01,568 root INFO Prepared similarity score dictionary.
+16:35:02,85 root INFO Splitted data.
+16:35:02,88 root INFO Train preparation:
+16:35:02,88 root INFO Preparing model data...
+16:35:02,154 root INFO Prepared model data.
+16:35:02,154 root INFO \Test preparation:
+16:35:02,154 root INFO Preparing model data...
+16:35:02,214 root INFO Prepared model data.
+16:35:04,576 root INFO Dumping all model data...
+16:35:06,387 root INFO Completed!
+16:36:03,110 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:03,741 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:36:03,745 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:04,297 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:36:04,349 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:04,988 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:36:04,991 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:05,536 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:36:05,539 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:06,192 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:36:06,195 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:06,741 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:36:06,744 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:07,289 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:36:07,293 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:07,923 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:36:07,926 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:08,501 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:36:08,506 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:09,57 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:36:09,62 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:09,611 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:36:09,627 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:36:10,186 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:36:14,523 root INFO Similarity matrix is obtained.
+16:36:14,748 root INFO Proteins already vectorized.
+16:36:14,749 root INFO Splitting data...
+16:36:14,749 root INFO Preparing similarity score dictionary.
+16:36:15,562 root INFO Prepared similarity score dictionary.
+16:36:15,731 root INFO Splitted data.
+16:36:15,735 root INFO Train preparation:
+16:36:15,735 root INFO Preparing model data...
+16:36:15,798 root INFO Prepared model data.
+16:36:15,798 root INFO \Test preparation:
+16:36:15,798 root INFO Preparing model data...
+16:36:15,854 root INFO Prepared model data.
+16:36:15,855 root INFO Dumping all model data...
+16:36:15,855 root INFO Completed!
+16:37:15,308 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:15,915 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:37:15,918 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:16,478 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:37:16,533 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:17,98 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:37:17,101 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:17,653 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:37:17,656 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:18,205 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:37:18,207 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:18,838 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:37:18,841 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:19,495 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:37:19,498 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:20,44 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:37:20,47 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:20,596 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:37:20,601 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:21,173 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:37:21,177 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:21,737 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:37:21,753 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:22,309 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:37:26,492 root INFO Similarity matrix is obtained.
+16:37:26,716 root INFO Proteins already vectorized.
+16:37:26,717 root INFO Splitting data...
+16:37:26,717 root INFO Preparing similarity score dictionary.
+16:37:27,426 root INFO Prepared similarity score dictionary.
+16:37:27,569 root INFO Splitted data.
+16:37:27,572 root INFO Train preparation:
+16:37:27,572 root INFO Preparing model data...
+16:37:27,635 root INFO Prepared model data.
+16:37:27,636 root INFO \Test preparation:
+16:37:27,636 root INFO Preparing model data...
+16:37:27,692 root INFO Prepared model data.
+16:37:27,693 root INFO Dumping all model data...
+16:37:27,693 root INFO Completed!
+16:37:56,959 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:57,517 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:37:57,524 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:58,103 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:37:58,274 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:58,911 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:37:58,917 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:37:59,463 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:37:59,469 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:00,16 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:38:00,22 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:00,658 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:38:00,664 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:01,224 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:38:01,230 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:01,780 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:38:01,786 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:02,350 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:38:02,362 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:02,926 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:38:02,938 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:03,487 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:38:03,522 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:38:04,82 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:38:08,453 root INFO Similarity matrix is obtained.
+16:38:08,681 root INFO Proteins already vectorized.
+16:38:08,682 root INFO Splitting data...
+16:38:08,682 root INFO Preparing similarity score dictionary.
+16:38:12,887 root INFO Prepared similarity score dictionary.
+16:38:13,417 root INFO Splitted data.
+16:38:13,421 root INFO Train preparation:
+16:38:13,421 root INFO Preparing model data...
+16:38:13,486 root INFO Prepared model data.
+16:38:13,486 root INFO \Test preparation:
+16:38:13,487 root INFO Preparing model data...
+16:38:13,546 root INFO Prepared model data.
+16:38:13,546 root INFO Dumping all model data...
+16:38:13,547 root INFO Completed!
+16:42:52,112 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:52,811 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:42:52,815 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:53,361 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:42:53,416 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:53,985 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:42:53,990 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:54,568 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:42:54,570 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:55,134 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:42:55,137 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:55,685 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:42:55,687 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:56,243 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:42:56,245 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:56,806 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:42:56,810 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:57,442 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:42:57,446 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:57,990 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:42:57,995 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:58,556 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:42:58,572 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:42:59,206 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:43:03,589 root INFO Similarity matrix is obtained.
+16:43:03,839 root INFO Proteins already vectorized.
+16:43:03,840 root INFO Splitting data...
+16:43:03,840 root INFO Preparing similarity score dictionary.
+16:43:04,629 root INFO Prepared similarity score dictionary.
+16:43:04,782 root INFO Splitted data.
+16:43:04,785 root INFO Train preparation:
+16:43:04,785 root INFO Preparing model data...
+16:44:19,801 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:20,418 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:44:20,422 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:20,971 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:44:21,24 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:21,573 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:44:21,576 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:22,113 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:44:22,116 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:22,663 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:44:22,666 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:23,202 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:44:23,205 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:23,753 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:44:23,756 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:24,372 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:44:24,375 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:24,922 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:44:24,927 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:25,461 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:44:25,465 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:26,88 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:44:26,104 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:44:26,639 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:44:30,809 root INFO Similarity matrix is obtained.
+16:44:31,56 root INFO Proteins already vectorized.
+16:44:31,56 root INFO Splitting data...
+16:44:31,56 root INFO Preparing similarity score dictionary.
+16:44:31,790 root INFO Prepared similarity score dictionary.
+16:44:31,950 root INFO Splitted data.
+16:44:31,953 root INFO Train preparation:
+16:44:31,953 root INFO Preparing model data...
+16:44:32,14 root INFO Prepared model data.
+16:44:32,14 root INFO \Test preparation:
+16:44:32,14 root INFO Preparing model data...
+16:44:32,69 root INFO Prepared model data.
+16:44:32,69 root INFO Dumping all model data...
+16:44:32,69 root INFO Completed!
+16:47:09,622 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:10,234 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:47:10,237 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:10,795 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:47:10,848 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:11,403 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:47:11,406 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:11,941 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:47:11,944 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:12,505 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:47:12,508 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:13,55 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:47:13,58 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:13,615 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:47:13,618 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:14,155 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:47:14,158 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:14,774 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:47:14,779 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:15,314 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:47:15,319 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:15,853 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:47:15,868 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:47:16,416 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:47:20,612 root INFO Similarity matrix is obtained.
+16:47:20,863 root INFO Proteins already vectorized.
+16:47:20,864 root INFO Splitting data...
+16:47:20,864 root INFO Preparing similarity score dictionary.
+16:47:21,546 root INFO Prepared similarity score dictionary.
+16:47:21,709 root INFO Splitted data.
+16:47:21,712 root INFO Train preparation:
+16:47:21,712 root INFO Preparing model data...
+16:47:21,773 root INFO Prepared model data.
+16:47:21,773 root INFO \Test preparation:
+16:47:21,773 root INFO Preparing model data...
+16:47:21,829 root INFO Prepared model data.
+16:47:21,829 root INFO Dumping all model data...
+16:47:21,829 root INFO Completed!
+16:49:05,682 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:06,355 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:49:06,362 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:06,921 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:07,120 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:07,662 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:49:07,668 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:08,203 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:49:08,210 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:08,764 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:49:08,770 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:09,391 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:49:09,399 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:09,932 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:49:09,941 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:10,491 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:49:10,498 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:11,34 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:11,46 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:11,583 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:11,593 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:12,210 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:12,243 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:12,861 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:49:17,361 root INFO Similarity matrix is obtained.
+16:49:17,609 root INFO Proteins already vectorized.
+16:49:17,610 root INFO Splitting data...
+16:49:17,610 root INFO Preparing similarity score dictionary.
+16:49:22,247 root INFO Prepared similarity score dictionary.
+16:49:22,788 root INFO Splitted data.
+16:49:22,791 root INFO Train preparation:
+16:49:22,792 root INFO Preparing model data...
+16:49:22,857 root INFO Prepared model data.
+16:49:22,857 root INFO \Test preparation:
+16:49:22,857 root INFO Preparing model data...
+16:49:22,918 root INFO Prepared model data.
+16:49:22,918 root INFO Dumping all model data...
+16:49:22,919 root INFO Completed!
+16:49:50,679 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:51,259 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:49:51,266 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:51,801 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:51,971 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:52,509 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:49:52,515 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:53,77 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:49:53,83 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:53,721 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:49:53,727 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:54,259 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:49:54,265 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:54,816 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:49:54,821 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:55,448 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:49:55,455 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:56,21 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:56,31 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:56,566 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:56,576 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:57,216 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:49:57,247 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:49:57,780 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:50:02,177 root INFO Similarity matrix is obtained.
+16:50:02,419 root INFO Proteins already vectorized.
+16:50:02,420 root INFO Splitting data...
+16:50:02,421 root INFO Preparing similarity score dictionary.
+16:50:06,544 root INFO Prepared similarity score dictionary.
+16:50:07,95 root INFO Splitted data.
+16:50:07,98 root INFO Train preparation:
+16:50:07,99 root INFO Preparing model data...
+16:50:07,164 root INFO Prepared model data.
+16:50:07,164 root INFO \Test preparation:
+16:50:07,164 root INFO Preparing model data...
+16:50:07,222 root INFO Prepared model data.
+16:50:07,222 root INFO Dumping all model data...
+16:50:07,223 root INFO Completed!
+16:55:51,225 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:51,824 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:55:51,831 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:52,397 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:55:52,568 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:53,202 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:55:53,208 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:53,755 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:55:53,761 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:54,306 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:55:54,312 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:54,960 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:55:54,966 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:55,525 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:55:55,531 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:56,88 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:55:56,94 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:56,641 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:55:56,652 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:57,215 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:55:57,225 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:57,856 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:55:57,888 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:55:58,440 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:56:02,979 root INFO Similarity matrix is obtained.
+16:56:03,240 root INFO Proteins already vectorized.
+16:56:03,241 root INFO Splitting data...
+16:56:03,241 root INFO Preparing similarity score dictionary.
+16:56:07,484 root INFO Prepared similarity score dictionary.
+16:56:08,41 root INFO Splitted data.
+16:56:08,45 root INFO Train preparation:
+16:56:08,45 root INFO Preparing model data...
+16:56:08,110 root INFO Prepared model data.
+16:56:08,110 root INFO \Test preparation:
+16:56:08,110 root INFO Preparing model data...
+16:56:08,169 root INFO Prepared model data.
+16:56:08,169 root INFO Dumping all model data...
+16:56:08,169 root INFO Completed!
+16:58:53,834 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:54,422 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:58:54,430 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:55,56 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:58:55,227 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:55,784 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+16:58:55,791 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:56,323 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+16:58:56,329 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:56,864 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+16:58:56,872 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:57,510 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+16:58:57,516 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:58,49 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+16:58:58,54 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:58,672 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+16:58:58,678 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:59,212 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:58:59,222 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:58:59,858 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:58:59,868 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:59:00,485 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+16:59:00,517 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+16:59:01,52 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+16:59:05,442 root INFO Similarity matrix is obtained.
+16:59:05,690 root INFO Proteins already vectorized.
+16:59:05,691 root INFO Splitting data...
+16:59:05,691 root INFO Preparing similarity score dictionary.
+16:59:09,874 root INFO Prepared similarity score dictionary.
+16:59:10,403 root INFO Splitted data.
+16:59:10,407 root INFO Train preparation:
+16:59:10,407 root INFO Preparing model data...
+16:59:10,472 root INFO Prepared model data.
+16:59:10,472 root INFO \Test preparation:
+16:59:10,472 root INFO Preparing model data...
+16:59:10,529 root INFO Prepared model data.
+16:59:10,530 root INFO Dumping all model data...
+16:59:10,530 root INFO Completed!
+17:12:17,561 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:18,146 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+17:12:18,149 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:18,765 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:12:18,818 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:19,354 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+17:12:19,357 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:19,896 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+17:12:19,898 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:20,466 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+17:12:20,468 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:21,14 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+17:12:21,17 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:21,551 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+17:12:21,554 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:22,92 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+17:12:22,96 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:22,712 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:12:22,716 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:23,341 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:12:23,346 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:23,883 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:12:23,899 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:12:24,523 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+17:12:28,714 root INFO Similarity matrix is obtained.
+17:12:28,959 root INFO Proteins already vectorized.
+17:12:28,960 root INFO Splitting data...
+17:12:28,960 root INFO Preparing similarity score dictionary.
+17:12:29,661 root INFO Prepared similarity score dictionary.
+17:12:29,804 root INFO Splitted data.
+17:12:29,807 root INFO Train preparation:
+17:12:29,807 root INFO Preparing model data...
+17:12:29,868 root INFO Prepared model data.
+17:12:29,868 root INFO \Test preparation:
+17:12:29,868 root INFO Preparing model data...
+17:12:29,923 root INFO Prepared model data.
+17:12:29,923 root INFO Dumping all model data...
+17:12:29,923 root INFO Completed!
+17:12:29,923 root INFO Finalizing X, y for training.
+17:12:29,924 root INFO Training model
+17:14:09,213 root INFO Training completed.
+17:14:09,213 root INFO Saved the model as a pickle.
+
+17:14:09,692 root INFO 552 out of 797 samples are predicted close to correct.
+17:14:49,814 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:50,461 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+17:14:50,464 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:51,19 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:14:51,73 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:51,642 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+17:14:51,645 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:52,195 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+17:14:52,198 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:52,770 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+17:14:52,773 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:53,403 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+17:14:53,406 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:53,955 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+17:14:53,958 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:54,504 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+17:14:54,507 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:55,158 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:14:55,162 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:55,723 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:14:55,727 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:56,277 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:14:56,293 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:14:56,841 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+17:15:01,7 root INFO Similarity matrix is obtained.
+17:15:01,250 root INFO Proteins already vectorized.
+17:15:01,251 root INFO Splitting data...
+17:15:01,251 root INFO Preparing similarity score dictionary.
+17:15:01,966 root INFO Prepared similarity score dictionary.
+17:15:02,110 root INFO Splitted data.
+17:15:02,113 root INFO Train preparation:
+17:15:02,113 root INFO Preparing model data...
+17:15:02,173 root INFO Prepared model data.
+17:15:02,173 root INFO \Test preparation:
+17:15:02,174 root INFO Preparing model data...
+17:15:02,228 root INFO Prepared model data.
+17:15:02,229 root INFO Dumping all model data...
+17:15:02,229 root INFO Completed!
+17:15:02,229 root INFO Model is created previously, using it.
+17:15:02,687 root INFO 15 out of 797 samples are predicted close to correct.
+17:17:55,477 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:56,161 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+17:17:56,164 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:56,724 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:17:56,778 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:57,409 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+17:17:57,413 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:57,959 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+17:17:57,962 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:58,508 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+17:17:58,510 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:59,142 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+17:17:59,144 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:17:59,692 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+17:17:59,695 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:18:00,275 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+17:18:00,279 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:18:00,841 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:18:00,845 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:18:01,419 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:18:01,424 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:18:01,969 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+17:18:01,984 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+17:18:02,620 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+17:18:06,777 root INFO Similarity matrix is obtained.
+17:18:07,25 root INFO Proteins already vectorized.
+17:18:07,25 root INFO Splitting data...
+17:18:07,26 root INFO Preparing similarity score dictionary.
+17:18:07,717 root INFO Prepared similarity score dictionary.
+17:18:07,857 root INFO Splitted data.
+17:18:07,859 root INFO Train preparation:
+17:18:07,860 root INFO Preparing model data...
+17:18:07,923 root INFO Prepared model data.
+17:18:07,923 root INFO \Test preparation:
+17:18:07,923 root INFO Preparing model data...
+17:18:07,979 root INFO Prepared model data.
+17:18:07,979 root INFO Dumping all model data...
+17:18:07,979 root INFO Completed!
+17:18:07,979 root INFO Finalizing X, y for training.
+17:18:07,979 root INFO Training model
+17:19:27,273 root INFO Training completed.
+17:19:27,274 root INFO Saved the model as a pickle.
+
+17:19:27,722 root INFO 570 out of 796 samples are predicted close to correct.

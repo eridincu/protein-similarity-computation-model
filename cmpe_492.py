@@ -12,8 +12,10 @@ Original file is located at
 import io
 import json
 import logging
+import os
 import random
 import re
+import pickle
 
 # import lightgbm
 import numpy as np
@@ -29,6 +31,17 @@ logging.basicConfig(filename="LOGS.txt",
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
 
+
+class NumpyEncoder(json.JSONEncoder):
+    """ Special json encoder for numpy types """
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
 
 SW_SCORES_PATH = "sw_sim_matrix.csv"
 
@@ -73,7 +86,7 @@ def get_protein_sequences_vectorized(file_path, vectorizer):
 
     with open(file_path, 'w') as p_file:
         logging.info(f'Saving vectorized proteins to {file_path}')
-        p_file.write(json.dumps(p_json))
+        p_file.write(json.dumps(p_json, cls=NumpyEncoder))
 
     logging.info("Vectorized all protein sequences.")
 
@@ -140,9 +153,9 @@ def prepare_model_data(data, protein_sequences_vectorized):
         similarity_score = t[1]
 
         X[t[0]] = np.concatenate((protein_sequences_vectorized[first_protein],
-                                 protein_sequences_vectorized[second_protein]), axis=1)
+                                 protein_sequences_vectorized[second_protein]))
         X[t[0][::-1]] = np.concatenate((protein_sequences_vectorized[second_protein],
-                                       protein_sequences_vectorized[first_protein]), axis=1)
+                                       protein_sequences_vectorized[first_protein]))
 
         y[t[0]] = similarity_score
         y[t[0][::-1]] = similarity_score
@@ -152,30 +165,42 @@ def prepare_model_data(data, protein_sequences_vectorized):
 
 
 def train_protein_similarity_model_SVM(train_X, train_y):
-    clf = svm.SVC(gamma=0.001, C=100.)
+    clf = {}
+    
+    clf = svm.LinearSVR(max_iter=10e6)
 
-    X = np.array()
-    y = np.array()
+    X = []
+    y = []
 
+    logging.info('Finalizing X, y for training.')
     for protein_pair, vector in train_X.items():
         X.append(vector)
         y.append(train_y[protein_pair])
+    
+    logging.info('Training model')
+    clf.fit(np.array(X), np.array(y))
+    logging.info('Training completed.')
 
-    clf.fit(X, y)
+    with open('linear_svr.pickle', 'wb') as f:
+        pickle.dump(clf, f, protocol=pickle.HIGHEST_PROTOCOL)
+        logging.info('Saved the model as a pickle.\n')
 
     return clf
 
 
 def test_model(test_X, test_y, similarity_model):
     c = 0
-    for protein_pair, vector in test_X:
-        prediction = similarity_model.predict(vector)
+    for first_protein, second_protein in test_X:
+        prediction = similarity_model.predict(np.array(test_X[(first_protein, second_protein)]).reshape(1, -1))
 
-        if abs(prediction - test_y[protein_pair]) <= 0.001:
+        print(f'Prediction: {prediction}, Actual: {test_y[(first_protein, second_protein)]}, difference: {abs(prediction - test_y[(first_protein, second_protein)])}')
+        if abs(prediction - test_y[(first_protein, second_protein)]) <= 0.001:
             c += 1
 
     print(f'{c} out of {len(test_X)} samples are predicted close to correct.')
     logging.info(f'{c} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c) / len(test_X)}')
 
     return c
 
@@ -184,7 +209,7 @@ similarity_df = get_similarity_df('sw_sim_matrix.csv')
 protein_sequences_vectorized = get_protein_sequences_vectorized(
     'proteins.json', get_protbert_embedding)
 
-train_data, test_data = split_data(similarity_df)
+train_data, test_data = split_data(similarity_df, train_data_size=400)
 
 logging.info("Train preparation:")
 train_X, train_y = prepare_model_data(train_data, protein_sequences_vectorized)
@@ -194,14 +219,14 @@ test_X, test_y = prepare_model_data(train_data, protein_sequences_vectorized)
 
 logging.info("Dumping all model data...")
 
-with open('train_x.json', 'w') as f:
-    f.write(json.dumps(train_X))
-with open('train_y.json', 'w') as f:
-    f.write(json.dumps(train_y))
-with open('test_x.json', 'w') as f:
-    f.write(json.dumps(test_X))
-with open('test_y.json', 'w') as f:
-    f.write(json.dumps(test_y))
+# with open('train_x.json', 'w') as f:
+#     f.write(json.dumps(train_X, cls=NumpyEncoder))
+# with open('train_y.json', 'w') as f:
+#     f.write(json.dumps(train_y, cls=NumpyEncoder))
+# with open('test_x.json', 'w') as f:
+#     f.write(json.dumps(test_X, cls=NumpyEncoder))
+# with open('test_y.json', 'w') as f:
+#     f.write(json.dumps(test_y, cls=NumpyEncoder))
 
 logging.info("Completed!")
 
