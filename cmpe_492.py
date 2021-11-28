@@ -17,12 +17,14 @@ import random
 import re
 import pickle
 
-# import lightgbm
 import numpy as np
 import pandas as pd
-from Bio import Align
-from transformers import AutoModel, AutoTokenizer
+#from Bio import Align
+#from transformers import AutoModel, AutoTokenizer
 from sklearn import svm
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import RepeatedKFold
+from lightgbm import LGBMRegressor
 
 
 logging.basicConfig(filename="LOGS.txt",
@@ -43,11 +45,8 @@ class NumpyEncoder(json.JSONEncoder):
             return obj.tolist()
         return json.JSONEncoder.default(self, obj)
 
-SW_SCORES_PATH = "sw_sim_matrix.csv"
-
-PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained(
-    'Rostlab/prot_bert', do_lower_case=False)
-PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
+#PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
+#PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
 
 
 def print_data(data):
@@ -125,10 +124,10 @@ def vectorize_data(data, vectorizer):
 
 def get_protbert_embedding(aa_sequence: str):
     cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
-    tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
-    output = PROTBERT(**tokens)
-    return output.last_hidden_state.detach().numpy().mean(axis=1)
-
+    #tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
+    #output = PROTBERT(**tokens)
+    #return output.last_hidden_state.detach().numpy().mean(axis=1)
+    return ''
 
 def split_data(similarity_df: pd.DataFrame, train_data_size: int):
     logging.info("Splitting data...")
@@ -154,10 +153,12 @@ def prepare_model_data(data, protein_sequences_vectorized):
 
         X.append(np.concatenate((protein_sequences_vectorized[first_protein],
                                  protein_sequences_vectorized[second_protein])))
+        '''
         X.append(np.concatenate((protein_sequences_vectorized[second_protein],
                                        protein_sequences_vectorized[first_protein])))
 
         y.append(similarity_score)
+        '''
         y.append(similarity_score)
 
     logging.info("Prepared model data.")
@@ -179,13 +180,33 @@ def train_protein_similarity_model_SVR(train_X, train_y):
 
     return clf
 
+def train_protein_similarity_model_LGBM(train_X, train_Y):
+    model = LGBMRegressor()
+
+    logging.info('Training model')
+    model.fit(np.array(train_X), np.array(train_Y))
+    '''
+    # for cross validation
+    cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
+    n_scores = cross_val_score(model, np.array(train_X), np.array(train_Y), scoring='neg_mean_absolute_error', cv=cv, n_jobs=-1, error_score='raise')
+    # report performance
+    print('MAE: %.3f (%.3f)' % (np.mean(n_scores),np.std(n_scores)))
+    '''
+
+    logging.info('Training completed.')
+
+    with open('LGBM.pickle', 'wb') as f:
+        pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
+        logging.info('Saved the model as a pickle.\n')
+
+    return model
 
 def test_model(test_X, test_y, similarity_model):
     c = 0
     for vector, actual in zip(test_X, test_y):
         prediction = similarity_model.predict(np.array(vector).reshape(1, -1))
 
-        print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
+        #print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
         if abs(prediction - actual) <= 0.001:
             c += 1
 
@@ -201,13 +222,13 @@ similarity_df = get_similarity_df('sw_sim_matrix.csv')
 protein_sequences_vectorized = get_protein_sequences_vectorized(
     'proteins.json', get_protbert_embedding)
 
-train_data, test_data = split_data(similarity_df, train_data_size=400)
+train_data, test_data = split_data(similarity_df, train_data_size=200000)
 
 logging.info("Train preparation:")
 train_X, train_y = prepare_model_data(train_data, protein_sequences_vectorized)
 
-logging.info("\Test preparation:")
-test_X, test_y = prepare_model_data(train_data, protein_sequences_vectorized)
+logging.info("Test preparation:")
+test_X, test_y = prepare_model_data(test_data, protein_sequences_vectorized)
 
 logging.info("Dumping all model data...")
 
@@ -222,7 +243,10 @@ logging.info("Dumping all model data...")
 
 logging.info("Completed!")
 
-similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
+#similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
+#correctly_predicted_count = test_model(test_X, test_y, similarity_model)
+
+similarity_model = train_protein_similarity_model_LGBM(train_X, train_y)
 correctly_predicted_count = test_model(test_X, test_y, similarity_model)
 
 
