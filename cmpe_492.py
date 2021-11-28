@@ -164,7 +164,7 @@ def prepare_model_data(data, protein_sequences_vectorized):
     return X, y
 
 
-def train_protein_similarity_model_SVM(train_X, train_y):
+def train_protein_similarity_model_SVR(train_X, train_y):
     clf = {}
     
     clf = svm.LinearSVR(max_iter=10e6)
