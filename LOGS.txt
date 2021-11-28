@@ -2629,3 +2629,86 @@
 17:19:27,274 root INFO Saved the model as a pickle.
 
 17:19:27,722 root INFO 570 out of 796 samples are predicted close to correct.
+18:25:16,360 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:17,50 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+18:25:17,57 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:17,619 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:25:17,825 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:18,362 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+18:25:18,369 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:18,916 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+18:25:18,922 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:19,539 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+18:25:19,545 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:20,80 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+18:25:20,95 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:20,629 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+18:25:20,636 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:21,278 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+18:25:21,284 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:21,832 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:25:21,843 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:22,386 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:25:22,397 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:22,938 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:25:22,974 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:25:23,533 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+18:25:27,945 root INFO Similarity matrix is obtained.
+18:25:28,195 root INFO Proteins already vectorized.
+18:25:28,196 root INFO Splitting data...
+18:25:28,196 root INFO Preparing similarity score dictionary.
+18:25:32,336 root INFO Prepared similarity score dictionary.
+18:25:32,868 root INFO Splitted data.
+18:25:32,871 root INFO Train preparation:
+18:25:32,871 root INFO Preparing model data...
+18:25:32,940 root INFO Prepared model data.
+18:25:32,940 root INFO \Test preparation:
+18:25:32,940 root INFO Preparing model data...
+18:25:32,998 root INFO Prepared model data.
+18:25:32,998 root INFO Dumping all model data...
+18:25:32,998 root INFO Completed!
+18:25:32,999 root INFO Finalizing X, y for training.
+18:35:45,367 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:46,10 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+18:35:46,13 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:46,631 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:35:46,686 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:47,308 urllib3.connectionpool DEBUG https://huggingface.co:443 "GET /api/models/Rostlab/prot_bert HTTP/1.1" 200 684
+18:35:47,311 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:47,854 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/vocab.txt HTTP/1.1" 200 0
+18:35:47,857 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:48,416 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer.json HTTP/1.1" 404 0
+18:35:48,419 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:48,962 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/added_tokens.json HTTP/1.1" 404 0
+18:35:48,967 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:49,517 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/special_tokens_map.json HTTP/1.1" 200 0
+18:35:49,520 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:50,56 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+18:35:50,59 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:50,674 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:35:50,679 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:51,225 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:35:51,229 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:51,765 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/config.json HTTP/1.1" 200 0
+18:35:51,780 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): huggingface.co:443
+18:35:52,398 urllib3.connectionpool DEBUG https://huggingface.co:443 "HEAD /Rostlab/prot_bert/resolve/main/pytorch_model.bin HTTP/1.1" 302 0
+18:35:56,669 root INFO Similarity matrix is obtained.
+18:35:56,920 root INFO Proteins already vectorized.
+18:35:56,921 root INFO Splitting data...
+18:35:56,921 root INFO Preparing similarity score dictionary.
+18:35:57,670 root INFO Prepared similarity score dictionary.
+18:35:57,813 root INFO Splitted data.
+18:35:57,817 root INFO Train preparation:
+18:35:57,817 root INFO Preparing model data...
+18:35:57,870 root INFO Prepared model data.
+18:35:57,870 root INFO \Test preparation:
+18:35:57,870 root INFO Preparing model data...
+18:35:57,924 root INFO Prepared model data.
+18:35:57,924 root INFO Dumping all model data...
+18:35:57,924 root INFO Completed!
+18:35:57,924 root INFO Training model
+18:37:15,529 root INFO Training completed.
+18:37:15,530 root INFO Saved the model as a pickle.
+
+18:37:15,974 root INFO 586 out of 800 samples are predicted close to correct.
+18:37:15,974 root INFO Accuracy: 0.7325

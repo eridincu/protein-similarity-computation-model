@@ -143,8 +143,8 @@ def split_data(similarity_df: pd.DataFrame, train_data_size: int):
 
 
 def prepare_model_data(data, protein_sequences_vectorized):
-    X = {}
-    y = {}
+    X = []
+    y = []
 
     logging.info("Preparing model data...")
     for t in data:
@@ -152,13 +152,13 @@ def prepare_model_data(data, protein_sequences_vectorized):
         second_protein = t[0][1]
         similarity_score = t[1]
 
-        X[t[0]] = np.concatenate((protein_sequences_vectorized[first_protein],
-                                 protein_sequences_vectorized[second_protein]))
-        X[t[0][::-1]] = np.concatenate((protein_sequences_vectorized[second_protein],
-                                       protein_sequences_vectorized[first_protein]))
+        X.append(np.concatenate((protein_sequences_vectorized[first_protein],
+                                 protein_sequences_vectorized[second_protein])))
+        X.append(np.concatenate((protein_sequences_vectorized[second_protein],
+                                       protein_sequences_vectorized[first_protein])))
 
-        y[t[0]] = similarity_score
-        y[t[0][::-1]] = similarity_score
+        y.append(similarity_score)
+        y.append(similarity_score)
 
     logging.info("Prepared model data.")
     return X, y
@@ -168,17 +168,9 @@ def train_protein_similarity_model_SVR(train_X, train_y):
     clf = {}
     
     clf = svm.LinearSVR(max_iter=10e6)
-
-    # TODO(): Don't belong here, move to data preparation step.
-    X = []
-    y = []
-    logging.info('Finalizing X, y for training.')
-    for protein_pair, vector in train_X.items():
-        X.append(vector)
-        y.append(train_y[protein_pair])
     
     logging.info('Training model')
-    clf.fit(np.array(X), np.array(y))
+    clf.fit(np.array(train_X), np.array(train_y))
     logging.info('Training completed.')
 
     with open('linear_svr.pickle', 'wb') as f:
@@ -190,11 +182,11 @@ def train_protein_similarity_model_SVR(train_X, train_y):
 
 def test_model(test_X, test_y, similarity_model):
     c = 0
-    for first_protein, second_protein in test_X:
-        prediction = similarity_model.predict(np.array(test_X[(first_protein, second_protein)]).reshape(1, -1))
+    for vector, actual in zip(test_X, test_y):
+        prediction = similarity_model.predict(np.array(vector).reshape(1, -1))
 
-        print(f'Prediction: {prediction}, Actual: {test_y[(first_protein, second_protein)]}, difference: {abs(prediction - test_y[(first_protein, second_protein)])}')
-        if abs(prediction - test_y[(first_protein, second_protein)]) <= 0.001:
+        print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
+        if abs(prediction - actual) <= 0.001:
             c += 1
 
     print(f'{c} out of {len(test_X)} samples are predicted close to correct.')
