@@ -131,11 +131,13 @@ def get_protbert_embedding(aa_sequence: str):
 
 def split_data(similarity_df: pd.DataFrame, train_data_size: int):
     logging.info("Splitting data...")
-    plain_data = list(prepare_similarity_scores(similarity_df).items())
-    random.shuffle(plain_data)
+    shuffled_df = similarity_df.sample(frac=1)
 
-    train_data = plain_data[0:train_data_size]
-    test_data = plain_data[train_data_size:]
+    train_df = shuffled_df[0:train_data_size]
+    test_df = shuffled_df[train_data_size:]
+    
+    train_data = list(prepare_similarity_scores(train_df).items())
+    test_data = list(prepare_similarity_scores(test_df).items())
 
     logging.info("Splitted data.")
     return train_data, test_data
@@ -153,12 +155,7 @@ def prepare_model_data(data, protein_sequences_vectorized):
 
         X.append(np.concatenate((protein_sequences_vectorized[first_protein],
                                  protein_sequences_vectorized[second_protein])))
-        '''
-        X.append(np.concatenate((protein_sequences_vectorized[second_protein],
-                                       protein_sequences_vectorized[first_protein])))
 
-        y.append(similarity_score)
-        '''
         y.append(similarity_score)
 
     logging.info("Prepared model data.")
@@ -232,16 +229,10 @@ test_X, test_y = prepare_model_data(test_data, protein_sequences_vectorized)
 
 logging.info("Dumping all model data...")
 
-# with open('train_x.json', 'w') as f:
-#     f.write(json.dumps(train_X, cls=NumpyEncoder))
-# with open('train_y.json', 'w') as f:
-#     f.write(json.dumps(train_y, cls=NumpyEncoder))
-# with open('test_x.json', 'w') as f:
-#     f.write(json.dumps(test_X, cls=NumpyEncoder))
-# with open('test_y.json', 'w') as f:
-#     f.write(json.dumps(test_y, cls=NumpyEncoder))
-
-logging.info("Completed!")
+print(len(train_X))
+print(len(train_y))
+print(len(test_X))
+print(len(test_y))
 
 #similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
 #correctly_predicted_count = test_model(test_X, test_y, similarity_model)
