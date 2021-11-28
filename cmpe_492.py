@@ -64,7 +64,7 @@ def get_protein_sequences_vectorized(file_path, vectorizer):
     logging.info('Starting vectorizing proteins.')
     for name, sequence in proteins.items():
         # converts "abc" -> " a b c ", discard first and last whitespace.
-        vectorized_proteins[name] = vectorizer(sequence.replace("", " ")[1:-1])
+        vectorized_proteins[name] = list(vectorizer(sequence.replace("", " ")[1:-1]))
 
         logging.info(f'Vectorized protein {name}')
 
@@ -151,7 +151,7 @@ def prepare_model_data(data, protein_sequences_vectorized):
     return X, y
 
 
-def train_protein_similarity_model(train_X, train_y):
+def train_protein_similarity_model_SVM(train_X, train_y):
     clf = svm.SVC(gamma=0.001, C=100.)
 
     X = np.array()
@@ -205,7 +205,7 @@ with open('test_y.json', 'w') as f:
 
 logging.info("Completed!")
 
-similarity_model = train_protein_similarity_model(train_X, train_y)
+similarity_model = train_protein_similarity_model_SVM(train_X, train_y)
 correctly_predicted_count = test_model(test_X, test_y, similarity_model)
 
 
