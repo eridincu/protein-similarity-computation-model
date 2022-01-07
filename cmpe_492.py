@@ -62,6 +62,12 @@ def print_data(data):
     for index, value in data.items():
         print(f"Index : {index}, Value : {value}")
 
+# print("Getting ProtBert Model and Tokenizer")
+# PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
+# PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
+# PROTEIN_TOKENIZER.save_pretrained("/Users/hazelcast/Desktop/protein-similarity-computation-model/")
+# PROTBERT.save_pretrained("/Users/hazelcast/Desktop/protein-similarity-computation-model/")
+# print("Model and tokenizer saved in local")
 
 def get_protein_sequences_vectorized(file_path, vectorizer):
     '''
@@ -207,7 +213,6 @@ def prepare_model_data(data, protein_sequences_vectorized):
 
 def train_protein_similarity_model_SVR(train_X, train_y):
     clf = {}
-
     clf = svm.LinearSVR(max_iter=1000)
 
     logging.info('Training model')
@@ -254,36 +259,41 @@ def train_protein_similarity_model_LGBM(train_X, train_Y):
 
 
 def test_model(test_X, test_y, similarity_model):
-    c = 0
-    c1 = 0
-    c2 = 0
+    c_001 = 0
+    c_01 = 0
+    c_1 = 0
     for vector, actual in zip(test_X, test_y):
         prediction = similarity_model.predict(np.array(vector).reshape(1, -1))
 
-        # print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
-        if abs(prediction - actual) <= 0.001:
-            c += 1
+        #print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
+        if abs(prediction - actual) <= 0.1:
+            c_1 += 1
         if abs(prediction - actual) <= 0.01:
-            c1 += 1
-        if abs(prediction - actual) <= 0.05:
-            c2 += 1
-
-    print()
-    print(f'{c} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c) / len(test_X)}')
-
-    print(f'{c1} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c1} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c1) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c1) / len(test_X)}')
-
-    print(f'{c2} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c2} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c2) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c2) / len(test_X)}')
-
+            c_01 += 1
+        if abs(prediction - actual) <= 0.001:
+            c_001 += 1
+    
+    print('0.1')
+    logging.info('0.1')
+    print(f'{c_1} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c_1} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c_1) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c_1) / len(test_X)}')
+    
+    print('\n0.01')
+    logging.info('0.01')
+    print(f'{c_01} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c_01} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c_01) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c_01) / len(test_X)}')
+    
+    print('\n0.001')
+    logging.info('0.001')
+    print(f'{c_001} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c_001} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c_001) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c_001) / len(test_X)}')
+    
     return c
 
 
