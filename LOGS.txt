@@ -2829,3 +2829,110 @@
 22:13:04,452 root INFO Preparing model data...
 22:13:19,372 root INFO Prepared model data.
 22:13:19,373 root INFO Training model
+15:58:49,432 root INFO Similarity matrix is obtained.
+15:58:49,594 root INFO Proteins already vectorized.
+15:58:49,594 root INFO Splitting data...
+15:59:19,995 root INFO Splitted data.
+16:01:04,644 root INFO Similarity matrix is obtained.
+16:01:04,809 root INFO Proteins already vectorized.
+16:01:04,810 root INFO Splitting data...
+16:01:34,970 root INFO Splitted data.
+16:10:41,398 root INFO Similarity matrix is obtained.
+16:10:41,562 root INFO Proteins already vectorized.
+16:10:41,562 root INFO Splitting data...
+16:11:05,560 root INFO Splitted data.
+16:13:11,140 root INFO Similarity matrix is obtained.
+16:13:11,298 root INFO Proteins already vectorized.
+16:13:11,299 root INFO Splitting data...
+16:13:38,209 root INFO Splitted data.
+16:19:50,596 root INFO Similarity matrix is obtained.
+16:19:50,754 root INFO Proteins already vectorized.
+16:19:50,754 root INFO Splitting data...
+16:20:16,66 root INFO Splitted data.
+16:30:27,383 root INFO Similarity matrix is obtained.
+16:30:27,548 root INFO Proteins already vectorized.
+16:30:27,548 root INFO Splitting data...
+16:30:52,441 root INFO Splitted data.
+16:36:20,407 root INFO Similarity matrix is obtained.
+16:36:20,562 root INFO Proteins already vectorized.
+16:36:20,562 root INFO Splitting data...
+16:36:48,662 root INFO Splitted data.
+16:40:04,215 root INFO Similarity matrix is obtained.
+16:40:04,405 root INFO Proteins already vectorized.
+16:40:04,405 root INFO Splitting data...
+16:40:28,844 root INFO Splitted data.
+16:43:25,138 root INFO Similarity matrix is obtained.
+16:43:25,295 root INFO Proteins already vectorized.
+16:43:25,296 root INFO Splitting data...
+16:43:49,449 root INFO Splitted data.
+16:46:42,327 root INFO Similarity matrix is obtained.
+16:46:42,481 root INFO Proteins already vectorized.
+16:46:42,482 root INFO Splitting data...
+16:47:07,429 root INFO Splitted data.
+16:48:48,527 root INFO Similarity matrix is obtained.
+16:48:48,708 root INFO Proteins already vectorized.
+16:48:48,708 root INFO Splitting data...
+16:49:12,975 root INFO Splitted data.
+16:50:23,325 root INFO Similarity matrix is obtained.
+16:50:23,482 root INFO Proteins already vectorized.
+16:50:23,482 root INFO Splitting data...
+16:50:47,383 root INFO Splitted data.
+18:02:55,333 root INFO Similarity matrix is obtained.
+18:02:55,489 root INFO Proteins already vectorized.
+18:02:55,490 root INFO Splitting data...
+18:03:19,706 root INFO Splitted data.
+18:06:08,678 root INFO Similarity matrix is obtained.
+18:06:08,933 root INFO Proteins already vectorized.
+18:06:08,933 root INFO Splitting data...
+18:06:08,953 root INFO Splitted data.
+18:08:16,792 root INFO Similarity matrix is obtained.
+18:08:16,955 root INFO Proteins already vectorized.
+18:08:16,956 root INFO Splitting data...
+18:08:16,966 root INFO Splitted data.
+18:11:45,90 root INFO Similarity matrix is obtained.
+18:11:45,253 root INFO Proteins already vectorized.
+18:11:45,254 root INFO Splitting data...
+18:11:45,263 root INFO Splitted data.
+18:15:59,550 root INFO Similarity matrix is obtained.
+18:15:59,726 root INFO Proteins already vectorized.
+18:15:59,727 root INFO Splitting data...
+18:16:03,925 root INFO Splitted data.
+18:49:32,851 root INFO Similarity matrix is obtained.
+18:49:33,6 root INFO Proteins already vectorized.
+18:49:33,6 root INFO Splitting data...
+18:49:33,259 root INFO Splitted data.
+19:11:09,853 root INFO Similarity matrix is obtained.
+19:11:10,13 root INFO Proteins already vectorized.
+19:11:10,14 root INFO Splitting data...
+19:11:36,401 root INFO Splitted data.
+19:15:19,652 root INFO Similarity matrix is obtained.
+19:15:19,824 root INFO Proteins already vectorized.
+19:15:19,824 root INFO Splitting data...
+19:15:44,988 root INFO Splitted data.
+19:15:44,989 root INFO Training model
+19:19:27,117 root INFO Similarity matrix is obtained.
+19:19:27,275 root INFO Proteins already vectorized.
+19:19:27,276 root INFO Splitting data...
+19:19:52,100 root INFO Splitted data.
+19:19:52,100 root INFO Training model
+21:45:34,890 root INFO Training completed.
+21:45:39,561 root INFO Saved the model as a pickle.
+
+21:53:52,663 root INFO 2266 out of 37600 samples are predicted close to correct.
+21:53:52,664 root INFO Accuracy: 0.06026595744680851
+22:05:00,381 root INFO Similarity matrix is obtained.
+22:05:00,585 root INFO Proteins already vectorized.
+22:05:00,586 root INFO Splitting data...
+22:05:35,182 root INFO Splitted data.
+22:05:37,546 root INFO 1038 out of 37600 samples are predicted close to correct.
+22:05:37,546 root INFO Accuracy: 0.027606382978723403
+22:05:37,546 root INFO 11098 out of 37600 samples are predicted close to correct.
+22:05:37,546 root INFO Accuracy: 0.2951595744680851
+22:05:37,546 root INFO 35337 out of 37600 samples are predicted close to correct.
+22:05:37,546 root INFO Accuracy: 0.939813829787234
+22:15:51,90 root INFO 7231 out of 37600 samples are predicted close to correct.
+22:15:51,91 root INFO Accuracy: 0.19231382978723405
+22:15:51,91 root INFO 32286 out of 37600 samples are predicted close to correct.
+22:15:51,91 root INFO Accuracy: 0.8586702127659575
+22:15:51,91 root INFO 37299 out of 37600 samples are predicted close to correct.
+22:15:51,91 root INFO Accuracy: 0.9919946808510638

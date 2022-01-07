@@ -19,11 +19,12 @@ import pickle
 
 import numpy as np
 import pandas as pd
-#from Bio import Align
-#from transformers import AutoModel, AutoTokenizer
+# from Bio import Align
+# from transformers import AutoModel, AutoTokenizer
 from sklearn import svm
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
+from sklearn.metrics import mean_squared_error
 from lightgbm import LGBMRegressor
 
 import optuna
@@ -32,7 +33,6 @@ import lightgbm as lgb
 import sklearn.datasets
 import sklearn.metrics
 from sklearn.model_selection import train_test_split
-
 
 logging.basicConfig(filename="LOGS.txt",
                     filemode='a',
@@ -43,6 +43,7 @@ logging.basicConfig(filename="LOGS.txt",
 
 class NumpyEncoder(json.JSONEncoder):
     """ Special json encoder for numpy types """
+
     def default(self, obj):
         if isinstance(obj, np.integer):
             return int(obj)
@@ -52,8 +53,9 @@ class NumpyEncoder(json.JSONEncoder):
             return obj.tolist()
         return json.JSONEncoder.default(self, obj)
 
-#PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
-#PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
+
+# PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
+# PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
 
 
 def print_data(data):
@@ -104,11 +106,11 @@ def get_similarity_df(filename):
     SW_score_dict = {}
     c = 0
     for _, score_list in df.iterrows():
-      c = 0
-      for score in score_list[1:]:
-        c = c + 1
-        #print(score_list[0], df_SW_score.columns[c], score)
-        SW_score_dict[(score_list[0], df.columns[c])] = score
+        c = 0
+        for score in score_list[1:]:
+            c = c + 1
+            # print(score_list[0], df_SW_score.columns[c], score)
+            SW_score_dict[(score_list[0], df.columns[c])] = score
     logging.info('Similarity matrix is obtained.')
 
     return SW_score_dict
@@ -139,12 +141,13 @@ def vectorize_data(data, vectorizer):
 
 def get_protbert_embedding(aa_sequence: str):
     cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
-    #tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
-    #output = PROTBERT(**tokens)
-    #return output.last_hidden_state.detach().numpy().mean(axis=1)
+    # tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
+    # output = PROTBERT(**tokens)
+    # return output.last_hidden_state.detach().numpy().mean(axis=1)
     return ''
 
-def split_data(similarity_df, protein_sequences_vectorized,  train_data_size: int):
+
+def split_data(similarity_df, protein_sequences_vectorized, train_data_size: int):
     plain_data = list(protein_sequences_vectorized.items())
     random.shuffle(plain_data)
     train_X = plain_data[:train_data_size]
@@ -153,13 +156,19 @@ def split_data(similarity_df, protein_sequences_vectorized,  train_data_size: in
 
     train_X_final = []
     train_Y_final = []
+    test_X_final = []
+    test_Y_final = []
+    '''
+    for id, vector in train_X:
+        for id2, vector2 in train_X:
+            train_X_final.append(np.concatenate((vector, vector2)))
+            train_Y_final.append(similarity_df[(id, id2)])
+    '''
     for id, vector in train_X:
         for id2, vector2 in train_X:
             train_X_final.append(np.concatenate((vector, vector2)))
             train_Y_final.append(similarity_df[(id, id2)])
 
-    test_X_final = []
-    test_Y_final = []
     for id, vector in test_X:
         for id2, vector2 in train_X:
             test_X_final.append(np.concatenate((vector, vector2)))
@@ -198,9 +207,9 @@ def prepare_model_data(data, protein_sequences_vectorized):
 
 def train_protein_similarity_model_SVR(train_X, train_y):
     clf = {}
-    
+
     clf = svm.LinearSVR(max_iter=1000)
-    
+
     logging.info('Training model')
     clf.fit(np.array(train_X), np.array(train_y))
     logging.info('Training completed.')
@@ -211,19 +220,29 @@ def train_protein_similarity_model_SVR(train_X, train_y):
 
     return clf
 
+
 def train_protein_similarity_model_LGBM(train_X, train_Y):
-    model = LGBMRegressor()
+    params = {'reg_alpha': 0.038878767356274956, 'reg_lambda': 1.0408691415547617, 'colsample_bytree': 0.9,
+              'subsample': 0.7, 'learning_rate': 0.01, 'max_depth': 10, 'num_leaves': 927, 'min_child_samples': 166,
+              'min_data_per_groups': 72, 'random_state': 48, 'n_estimators': 20000, 'metric': 'rmse'}
+    # I changed min_data_per_groups to cat_smooth beacuse when I used LGBM params in optuna I named cat_smooth
+    # as min_data_per_groups (there is no parameter named min_data_per_groups in LGBM !!!)
+    params['cat_smooth'] = params.pop('min_data_per_groups')
 
     logging.info('Training model')
+
+
+
+    model = LGBMRegressor(**params)
+
     model.fit(np.array(train_X), np.array(train_Y))
 
     # for cross validation
-    #cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
-    #n_scores = cross_val_score(model, np.array(train_X), np.array(train_Y), scoring='neg_mean_absolute_error', cv=cv, n_jobs=-1, error_score='raise')
+    # cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
+    # n_scores = cross_val_score(model, np.array(train_X), np.array(train_Y), scoring='neg_mean_absolute_error', cv=cv, n_jobs=-1, error_score='raise')
     # report performance
-    #print(n_scores)
-    #print('MAE: %.3f (%.3f)' % (np.mean(n_scores),np.std(n_scores)))
-
+    # print(n_scores)
+    # print('MAE: %.3f (%.3f)' % (np.mean(n_scores),np.std(n_scores)))
 
     logging.info('Training completed.')
 
@@ -233,19 +252,37 @@ def train_protein_similarity_model_LGBM(train_X, train_Y):
 
     return model
 
+
 def test_model(test_X, test_y, similarity_model):
     c = 0
+    c1 = 0
+    c2 = 0
     for vector, actual in zip(test_X, test_y):
         prediction = similarity_model.predict(np.array(vector).reshape(1, -1))
 
-        #print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
+        # print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
         if abs(prediction - actual) <= 0.001:
             c += 1
+        if abs(prediction - actual) <= 0.01:
+            c1 += 1
+        if abs(prediction - actual) <= 0.05:
+            c2 += 1
 
+    print()
     print(f'{c} out of {len(test_X)} samples are predicted close to correct.')
     logging.info(f'{c} out of {len(test_X)} samples are predicted close to correct.')
     print(f'Accuracy: {float(c) / len(test_X)}')
     logging.info(f'Accuracy: {float(c) / len(test_X)}')
+
+    print(f'{c1} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c1} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c1) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c1) / len(test_X)}')
+
+    print(f'{c2} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c2} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c2) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c2) / len(test_X)}')
 
     return c
 
@@ -255,32 +292,30 @@ def test_model(test_X, test_y, similarity_model):
 # FYI: Objective functions can take additional arguments
 # (https://optuna.readthedocs.io/en/stable/faq.html#objective-func-additional-args).
 def objective(trial, data, target):
-    train_x, valid_x, train_y, valid_y = train_test_split(data, target, test_size=0.25)
-    dtrain = lgb.Dataset(train_x, label=train_y)
-    dvalid = lgb.Dataset(valid_x, label=valid_y)
-
+    train_x, test_x, train_y, test_y = train_test_split(data, target, test_size=0.2, random_state=42)
     param = {
-        "objective": "binary",
-        "metric": "auc",
-        "verbosity": -1,
-        "boosting_type": "gbdt",
-        "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
-        "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
-        "num_leaves": trial.suggest_int("num_leaves", 2, 256),
-        "feature_fraction": trial.suggest_float("feature_fraction", 0.4, 1.0),
-        "bagging_fraction": trial.suggest_float("bagging_fraction", 0.4, 1.0),
-        "bagging_freq": trial.suggest_int("bagging_freq", 1, 7),
-        "min_child_samples": trial.suggest_int("min_child_samples", 5, 100),
+        'metric': 'rmse',
+        'random_state': 48,
+        'n_estimators': 20000,
+        'reg_alpha': trial.suggest_loguniform('reg_alpha', 1e-3, 10.0),
+        'reg_lambda': trial.suggest_loguniform('reg_lambda', 1e-3, 10.0),
+        'colsample_bytree': trial.suggest_categorical('colsample_bytree', [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]),
+        'subsample': trial.suggest_categorical('subsample', [0.4, 0.5, 0.6, 0.7, 0.8, 1.0]),
+        'learning_rate': trial.suggest_categorical('learning_rate', [0.006, 0.008, 0.01, 0.014, 0.017, 0.02]),
+        'max_depth': trial.suggest_categorical('max_depth', [10, 20, 100]),
+        'num_leaves': trial.suggest_int('num_leaves', 1, 1000),
+        'min_child_samples': trial.suggest_int('min_child_samples', 1, 300),
+        'cat_smooth': trial.suggest_int('min_data_per_groups', 1, 100)
     }
+    model = LGBMRegressor(**param)
 
-    # Add a callback for pruning.
-    pruning_callback = optuna.integration.LightGBMPruningCallback(trial, "auc")
-    gbm = lgb.train(param, dtrain, valid_sets=[dvalid], callbacks=[pruning_callback])
+    model.fit(train_x, train_y, eval_set=[(test_x, test_y)], early_stopping_rounds=100, verbose=False)
 
-    preds = gbm.predict(valid_x)
-    pred_labels = np.rint(preds)
-    accuracy = sklearn.metrics.accuracy_score(valid_y, pred_labels)
-    return accuracy
+    preds = model.predict(test_x)
+
+    rmse = mean_squared_error(test_y, preds, squared=False)
+
+    return rmse
 
 
 similarity_df = get_similarity_df('sw_sim_matrix.csv')
@@ -288,23 +323,34 @@ protein_sequences_vectorized = get_protein_sequences_vectorized(
     'proteins.json', get_protbert_embedding)
 
 train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=450)
-
+'''
+train_X = np.array(train_X)
+train_y = np.array(train_y)
+print(np.shape(train_X))
+print(np.shape(train_y))
+'''
 print(len(train_X))
 print(len(train_y))
 print(len(test_X))
 print(len(test_y))
+similarity_model = {}
+with open('linear_svr2.pickle', 'rb') as f:
+    similarity_model = pickle.load(f)
 
-similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
+
+# similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
 correctly_predicted_count = test_model(test_X, test_y, similarity_model)
 
+similarity_model = {}
+with open('LGBM.pickle', 'rb') as f:
+    similarity_model = pickle.load(f)
 #similarity_model = train_protein_similarity_model_LGBM(train_X, train_y)
-#correctly_predicted_count = test_model(test_X, test_y, similarity_model)
-
+correctly_predicted_count = test_model(test_X, test_y, similarity_model)
 
 exit()
 
-study = optuna.create_study(pruner=optuna.pruners.MedianPruner(n_warmup_steps=10), direction="maximize")
-study.optimize(lambda trial: objective(trial, train_X, train_y), n_trials=100)
+study = optuna.create_study(direction="minimize")
+study.optimize(lambda trial: objective(trial, train_X, train_y), n_trials=50)
 
 print("Number of finished trials: {}".format(len(study.trials)))
 
@@ -317,6 +363,8 @@ print("  Params: ")
 for key, value in trial.params.items():
     print("    {}: {}".format(key, value))
 
+params = study.best_params
+print(params)
 
 """### PROTBERT"""
 """
