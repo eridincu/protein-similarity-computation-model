@@ -205,7 +205,7 @@ def prepare_model_data(data, protein_sequences_vectorized):
 def train_protein_similarity_model_SVR(train_X, train_y):
     clf = {}
     
-    clf = svm.LinearSVR(max_iter=10e6)
+    clf = svm.SVR()
     
     logging.info('Training model')
     clf.fit(np.array(train_X), np.array(train_y))
@@ -240,18 +240,40 @@ def train_protein_similarity_model_LGBM(train_X, train_Y):
     return model
 
 def test_model(test_X, test_y, similarity_model):
-    c = 0
+    c_001 = 0
+    c_01 = 0
+    c_1 = 0
     for vector, actual in zip(test_X, test_y):
         prediction = similarity_model.predict(np.array(vector).reshape(1, -1))
 
         #print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
+        if abs(prediction - actual) <= 0.1:
+            c_1 += 1
+        if abs(prediction - actual) <= 0.01:
+            c_01 += 1
         if abs(prediction - actual) <= 0.001:
-            c += 1
-
-    print(f'{c} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c) / len(test_X)}')
+            c_001 += 1
+    
+    print('0.1')
+    logging.info('0.1')
+    print(f'{c_1} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c_1} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c_1) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c_1) / len(test_X)}')
+    
+    print('\n0.01')
+    logging.info('0.01')
+    print(f'{c_01} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c_01} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c_01) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c_01) / len(test_X)}')
+    
+    print('\n0.001')
+    logging.info('0.001')
+    print(f'{c_001} out of {len(test_X)} samples are predicted close to correct.')
+    logging.info(f'{c_001} out of {len(test_X)} samples are predicted close to correct.')
+    print(f'Accuracy: {float(c_001) / len(test_X)}')
+    logging.info(f'Accuracy: {float(c_001) / len(test_X)}')
 
     return c
 
@@ -293,7 +315,7 @@ similarity_df = get_similarity_df('sw_sim_matrix.csv')
 protein_sequences_vectorized = get_protein_sequences_vectorized(
     'proteins.json', get_protbert_embedding)
 
-train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=450)
+train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=445)
 
 print(len(train_X))
 print(len(train_y))
