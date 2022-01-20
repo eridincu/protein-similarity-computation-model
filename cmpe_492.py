@@ -230,7 +230,7 @@ def train_protein_similarity_model_LGBM(train_X, train_Y):
     return model
 
 def test_model(model_name, test_X, test_y, similarity_model):
-    logging.info(f"Testing {model_name}...")
+    logging.info('Testing ' + model_name)
     start_time = time.time()
 
     c_001 = 0
