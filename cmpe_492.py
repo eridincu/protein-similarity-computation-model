@@ -172,7 +172,7 @@ def split_data(similarity_df, protein_sequences_vectorized, train_data_size):
     test_Y_final = []
     for id, vector in test_X:
         for id2, vector2 in train_X:
-            test_X_final.append(np.sum((vector, vector2)))
+            test_X_final.append(np.concatenate((vector, vector2)))
             test_Y_final.append(similarity_df[(id, id2)])
         for id2, vector2 in test_X:
             test_X_final.append(np.concatenate((vector, vector2)))
