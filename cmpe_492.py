@@ -52,10 +52,6 @@ class NumpyEncoder(json.JSONEncoder):
 #PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
 
 
-def print_data(data):
-    for index, value in data.items():
-        print(f"Index : {index}, Value : {value}")
-
 # print("Getting ProtBert Model and Tokenizer")
 # PROTEIN_TOKENIZER = AutoTokenizer.from_pretrained('Rostlab/prot_bert', do_lower_case=False)
 # PROTBERT = AutoModel.from_pretrained('Rostlab/prot_bert')
@@ -87,13 +83,13 @@ def get_protein_sequences_vectorized(file_path, vectorizer):
         # converts "abc" -> " a b c ", discard first and last whitespace.
         vectorized_proteins[name] = list(vectorizer(sequence.replace("", " ")[1:-1]))
 
-        logging.info(f'Vectorized protein {name}')
+        logging.info('Vectorized protein ' + name)
 
     p_json["proteins"] = vectorized_proteins
     p_json["is_vectorized"] = True
 
     with open(file_path, 'w') as p_file:
-        logging.info(f'Saving vectorized proteins to {file_path}')
+        logging.info('Saving vectorized proteins to ' + file_path)
         p_file.write(json.dumps(p_json, cls=NumpyEncoder))
 
     logging.info("Vectorized all protein sequences.")
@@ -200,14 +196,14 @@ def prepare_model_data(data, protein_sequences_vectorized):
 
 
 def train_and_save_model(model_name, model, train_X, train_y):
-    logging.info(f'Training model {model_name}...')
+    logging.info('Training model ' + model_name)
     start_time = time.time()
     model.fit(np.array(train_X), np.array(train_y))
-    logging.info(f'Training completed in {(time.time() - start_time)} seconds.')
+    logging.info('Training completed in ' + str(time.time() - start_time) + ' seconds.')
 
     with open('model_name.pickle', 'wb') as f:
         pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
-        logging.info('Saved {model_name} model as a pickle.\n')
+        logging.info('Saved ' + model_name + ' model as a pickle.\n')
 
     return model
 
@@ -253,26 +249,26 @@ def test_model(model_name, test_X, test_y, similarity_model):
     
     print('0.1')
     logging.info('0.1')
-    print(f'{c_1} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c_1} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c_1) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c_1) / len(test_X)}')
+    print(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    logging.info(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    print('Accuracy: ' + str(float(c_1) / len(test_X)))
+    logging.info('Accuracy: ' + str(float(c_1) / len(test_X)))
     
     print('\n0.01')
     logging.info('0.01')
-    print(f'{c_01} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c_01} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c_01) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c_01) / len(test_X)}')
+    print(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    logging.info(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    print('Accuracy: ' + str(float(c_01) / len(test_X)))
+    logging.info('Accuracy: ' + str(float(c_01) / len(test_X)))
     
     print('\n0.001')
     logging.info('0.001')
-    print(f'{c_001} out of {len(test_X)} samples are predicted close to correct.')
-    logging.info(f'{c_001} out of {len(test_X)} samples are predicted close to correct.')
-    print(f'Accuracy: {float(c_001) / len(test_X)}')
-    logging.info(f'Accuracy: {float(c_001) / len(test_X)}')
+    print(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    logging.info(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    print('Accuracy: ' + str(float(c_001) / len(test_X)))
+    logging.info('Accuracy: ' + str(float(c_001) / len(test_X)))
 
-    logging.info(f"Test completed in {(time.time() - start_time)} seconds.\n")
+    logging.info('Test completed in ' + str(time.time() - start_time) + ' seconds.\n')
     return [c_1, c_01, c_001]
 
 
