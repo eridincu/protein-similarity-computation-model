@@ -15,6 +15,8 @@ import random
 import re
 import pickle
 import time
+import sys
+
 
 import numpy as np
 import pandas as pd
@@ -26,14 +28,19 @@ from sklearn.model_selection import RepeatedKFold
 from sklearn.svm import SVR
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-
-# from lightgbm import LGBMRegressor
 from sklearn.linear_model import LassoLarsCV
+from sklearn.neighbors import KNeighborsRegressor
+# from lightgbm import LGBMRegressor
+
 
 from sklearn.model_selection import train_test_split
 
+args = sys.argv[1:]
 
-logging.basicConfig(filename="LOGS.txt",
+if len(args) == 1:
+    args.append("default")
+
+logging.basicConfig(filename="LOGS" + args[0] + "_" + args[1] + ".txt",
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
@@ -286,34 +293,59 @@ print(len(train_y))
 print(len(test_X))
 print(len(test_y))
 
+
 regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
+
 models = {
-    # "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=False),
-    # "Cross Validated-Normalized Lasso": LassoLarsCV(cv=5, normalize=True),
-    "SVR, kernel=linear, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=100.0, epsilon=0.2, )),
-    "SVR, kernel=linear, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=10.0, epsilon=0.2)),
-    "SVR, kernel=linear, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=1.0, epsilon=0.2)),
-    "SVR, kernel=linear, c=0.8, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=0.8, epsilon=0.2)),
-    "SVR, kernel=linear, c=0.6, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=0.6, epsilon=0.2)),
-    "SVR, kernel=linear, c=0.4, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=0.4, epsilon=0.2)),
-    "SVR, kernel=linear, c=0.2, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=0.2, epsilon=0.2)),
-    # "SVR, kernel=rbf, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=100.0, epsilon=0.2, )),
-    # "SVR, kernel=rbf, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=10.0, epsilon=0.2)),
-    # "SVR, kernel=rbf, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2)),
-    # "SVR, kernel=rbf, c=0.8, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.8, epsilon=0.2)),
-    # "SVR, kernel=rbf, c=0.6, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.6, epsilon=0.2)),
-    # "SVR, kernel=rbf, c=0.4, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.4, epsilon=0.2)),
-    # "SVR, kernel=rbf, c=0.2, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.2, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=100.0, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=10.0, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=1.0, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=0.8, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.8, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=0.6, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.6, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=0.4, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.4, epsilon=0.2)),
-    # "SVR, kernel=sigmoid, c=0.2, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.2, epsilon=0.2)),
+    "lasso": {
+        'default': {
+            "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=True),
+            "Cross Validated-Normalized Lasso": LassoLarsCV(cv=5, normalize=False),
+        }
+    },
+    "svr": {
+        'linear': {
+            "SVR, kernel=linear, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=100.0, epsilon=0.2, )),
+            "SVR, kernel=linear, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=10.0, epsilon=0.2)),
+            "SVR, kernel=linear, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=1.0, epsilon=0.2)),
+            "SVR, kernel=linear, c=0.1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=0.1, epsilon=0.2)),
+        },
+        'rbf': {
+            "SVR, kernel=rbf, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=100.0, epsilon=0.2, )),
+            "SVR, kernel=rbf, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=10.0, epsilon=0.2)),
+            "SVR, kernel=rbf, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2)),
+            "SVR, kernel=rbf, c=0.1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.1, epsilon=0.2)),
+        },
+        'sigmoid': {
+            "SVR, kernel=sigmoid, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=100.0, epsilon=0.2)),
+            "SVR, kernel=sigmoid, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=10.0, epsilon=0.2)),
+            "SVR, kernel=sigmoid, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=1.0, epsilon=0.2)),
+            "SVR, kernel=sigmoid, c=0.1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.1, epsilon=0.2)),
+           
+        }
+    },
+    "knn": {
+        'uniform': {
+            "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=10),
+            "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=30),
+            "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=60),
+        },
+        'distance': {
+            "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=10),
+            "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=30),
+            "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=60),
+        }
+    }   
 }
-for model_name in models:
-    model = models[model_name]
+
+to_be_tested_models = {}
+
+for model_desc in models[args[0]][args[1]]:
+    to_be_tested_models[model_desc] = models[args[0]][args[1]][model_desc]
+    
+
+for model_name in to_be_tested_models:
+    model = to_be_tested_models[model_name]
     similarity_model = train_and_save_model(model_name, model, train_X, train_y)
     correctly_predicted_count = test_model(model_name, test_X, test_y, similarity_model)
 
