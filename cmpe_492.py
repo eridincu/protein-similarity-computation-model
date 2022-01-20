@@ -9,13 +9,12 @@ Original file is located at
 # **Machine Learning for Protein Similarity Computation**
 """
 
-import io
 import json
 import logging
-import os
 import random
 import re
 import pickle
+import time
 
 import numpy as np
 import pandas as pd
@@ -24,13 +23,10 @@ import pandas as pd
 from sklearn import svm
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
+
 from lightgbm import LGBMRegressor
+from sklearn.linear_model import LassoLarsCV
 
-import optuna
-
-import lightgbm as lgb
-import sklearn.datasets
-import sklearn.metrics
 from sklearn.model_selection import train_test_split
 
 
@@ -150,6 +146,7 @@ def get_protbert_embedding(aa_sequence: str):
     #return output.last_hidden_state.detach().numpy().mean(axis=1)
     return ''
 
+
 def split_data(similarity_df, protein_sequences_vectorized,  train_data_size: int):
     plain_data = list(protein_sequences_vectorized.items())
     random.shuffle(plain_data)
@@ -202,20 +199,17 @@ def prepare_model_data(data, protein_sequences_vectorized):
     return X, y
 
 
-def train_protein_similarity_model_SVR(train_X, train_y):
-    clf = {}
-    
-    clf = svm.SVR()
-    
-    logging.info('Training model')
-    clf.fit(np.array(train_X), np.array(train_y))
-    logging.info('Training completed.')
+def train_and_save_model(model_name, model, train_X, train_y):
+    logging.info(f'Training model {model_name}...')
+    start_time = time.time()
+    model.fit(np.array(train_X), np.array(train_y))
+    logging.info(f'Training completed in {(time.time() - start_time)} seconds.')
 
-    with open('linear_svr.pickle', 'wb') as f:
-        pickle.dump(clf, f, protocol=pickle.HIGHEST_PROTOCOL)
-        logging.info('Saved the model as a pickle.\n')
+    with open('model_name.pickle', 'wb') as f:
+        pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
+        logging.info('Saved {model_name} model as a pickle.\n')
 
-    return clf
+    return model
 
 def train_protein_similarity_model_LGBM(train_X, train_Y):
     model = LGBMRegressor()
@@ -239,7 +233,10 @@ def train_protein_similarity_model_LGBM(train_X, train_Y):
 
     return model
 
-def test_model(test_X, test_y, similarity_model):
+def test_model(model_name, test_X, test_y, similarity_model):
+    logging.info(f"Testing {model_name}...")
+    start_time = time.time()
+
     c_001 = 0
     c_01 = 0
     c_1 = 0
@@ -275,40 +272,8 @@ def test_model(test_X, test_y, similarity_model):
     print(f'Accuracy: {float(c_001) / len(test_X)}')
     logging.info(f'Accuracy: {float(c_001) / len(test_X)}')
 
-    return c
-
-
-# --------------  OPTUNA  ------------------
-
-# FYI: Objective functions can take additional arguments
-# (https://optuna.readthedocs.io/en/stable/faq.html#objective-func-additional-args).
-def objective(trial, data, target):
-    train_x, valid_x, train_y, valid_y = train_test_split(data, target, test_size=0.25)
-    dtrain = lgb.Dataset(train_x, label=train_y)
-    dvalid = lgb.Dataset(valid_x, label=valid_y)
-
-    param = {
-        "objective": "binary",
-        "metric": "auc",
-        "verbosity": -1,
-        "boosting_type": "gbdt",
-        "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
-        "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
-        "num_leaves": trial.suggest_int("num_leaves", 2, 256),
-        "feature_fraction": trial.suggest_float("feature_fraction", 0.4, 1.0),
-        "bagging_fraction": trial.suggest_float("bagging_fraction", 0.4, 1.0),
-        "bagging_freq": trial.suggest_int("bagging_freq", 1, 7),
-        "min_child_samples": trial.suggest_int("min_child_samples", 5, 100),
-    }
-
-    # Add a callback for pruning.
-    pruning_callback = optuna.integration.LightGBMPruningCallback(trial, "auc")
-    gbm = lgb.train(param, dtrain, valid_sets=[dvalid], callbacks=[pruning_callback])
-
-    preds = gbm.predict(valid_x)
-    pred_labels = np.rint(preds)
-    accuracy = sklearn.metrics.accuracy_score(valid_y, pred_labels)
-    return accuracy
+    logging.info(f"Test completed in {(time.time() - start_time)} seconds.\n")
+    return [c_1, c_01, c_001]
 
 
 similarity_df = get_similarity_df('sw_sim_matrix.csv')
@@ -322,29 +287,19 @@ print(len(train_y))
 print(len(test_X))
 print(len(test_y))
 
-similarity_model = train_protein_similarity_model_SVR(train_X, train_y)
-correctly_predicted_count = test_model(test_X, test_y, similarity_model)
+models = {
+    "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=False),
+    "Cross Validated-Normalized Lasso": LassoLarsCV(cv=5, normalize=True),
 
-#similarity_model = train_protein_similarity_model_LGBM(train_X, train_y)
-#correctly_predicted_count = test_model(test_X, test_y, similarity_model)
+}
+for model_name in models:
+    model = models[model_name]
+    similarity_model = train_and_save_model(model_name, model, train_X, train_y)
+    correctly_predicted_count = test_model(model_name, test_X, test_y, similarity_model)
+
 
 
 exit()
-
-study = optuna.create_study(pruner=optuna.pruners.MedianPruner(n_warmup_steps=10), direction="maximize")
-study.optimize(lambda trial: objective(trial, train_X, train_y), n_trials=100)
-
-print("Number of finished trials: {}".format(len(study.trials)))
-
-print("Best trial:")
-trial = study.best_trial
-
-print("  Value: {}".format(trial.value))
-
-print("  Params: ")
-for key, value in trial.params.items():
-    print("    {}: {}".format(key, value))
-
 
 """### PROTBERT"""
 """
