@@ -26,6 +26,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
 
 from sklearn.svm import SVR
+from sklearn.svm import LinearSVR
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LassoLarsCV
@@ -153,7 +154,7 @@ def get_protbert_embedding(aa_sequence):
     return ''
 
 
-def split_data(similarity_df, protein_sequences_vectorized,  train_data_size):
+def split_data(similarity_df, protein_sequences_vectorized, train_data_size):
     plain_data = list(protein_sequences_vectorized.items())
     random.shuffle(plain_data)
     train_X = plain_data[:train_data_size]
@@ -171,7 +172,7 @@ def split_data(similarity_df, protein_sequences_vectorized,  train_data_size):
     test_Y_final = []
     for id, vector in test_X:
         for id2, vector2 in train_X:
-            test_X_final.append(np.concatenate((vector, vector2)))
+            test_X_final.append(np.sum((vector, vector2)))
             test_Y_final.append(similarity_df[(id, id2)])
         for id2, vector2 in test_X:
             test_X_final.append(np.concatenate((vector, vector2)))
@@ -211,7 +212,7 @@ def train_and_save_model(model_name, model, train_X, train_y):
     model.fit(np.array(train_X), np.array(train_y))
     logging.info('Training completed in ' + str(time.time() - start_time) + ' seconds.')
 
-    with open('model_name.pickle', 'wb') as f:
+    with open(model_name + '.pickle', 'wb') as f:
         pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
         logging.info('Saved ' + model_name + ' model as a pickle.\n')
 
@@ -238,48 +239,29 @@ def train_and_save_model(model_name, model, train_X, train_y):
 #         logging.info('Saved the model as a pickle.\n')
 
 #     return model
-
+def report_statistics(error_margin, predicted, total):
+    logging.info(error_margin)
+    logging.info(str(predicted) + ' out of ' + str(total) + ' samples are predicted close to correct.')
+    logging.info('Accuracy: ' + str(float(predicted) / total) + "\n")
+    
 def test_model(model_name, test_X, test_y, similarity_model):
     logging.info('Testing ' + model_name)
     start_time = time.time()
 
-    c_001 = 0
-    c_01 = 0
-    c_1 = 0
+    error_margin_count = {0.1: 0, 0.05: 0, 0.04: 0, 0.03: 0, 0.02: 0, 0.01: 0, 0.001: 0}
     for vector, actual in zip(test_X, test_y):
         prediction = similarity_model.predict(np.array(vector).reshape(1, -1))
 
         #print(f'Prediction: {prediction}, Actual: {actual}, difference: {abs(prediction - actual)}')
-        if abs(prediction - actual) <= 0.1:
-            c_1 += 1
-        if abs(prediction - actual) <= 0.01:
-            c_01 += 1
-        if abs(prediction - actual) <= 0.001:
-            c_001 += 1
+        for error_margin in error_margin_count.keys():
+            if abs(prediction - actual) <= error_margin:
+                error_margin_count[error_margin] += 1
     
-    # print('0.1')
-    logging.info('0.1')
-    # print(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    logging.info(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    # print('Accuracy: ' + str(float(c_1) / len(test_X)))
-    logging.info('Accuracy: ' + str(float(c_1) / len(test_X)))
-    
-    # print('\n0.01')
-    logging.info('0.01')
-    # print(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    logging.info(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    # print('Accuracy: ' + str(float(c_01) / len(test_X)))
-    logging.info('Accuracy: ' + str(float(c_01) / len(test_X)))
-    
-    # print('\n0.001')
-    logging.info('0.001')
-    # print(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    logging.info(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    # print('Accuracy: ' + str(float(c_001) / len(test_X)))
-    logging.info('Accuracy: ' + str(float(c_001) / len(test_X)))
+    for error_margin, error_count in error_margin_count.items():
+        report_statistics(str(error_margin), error_count, len(test_X))
 
     logging.info('Test completed in ' + str(time.time() - start_time) + ' seconds.\n')
-    return [c_1, c_01, c_001]
+    return error_margin_count
 
 
 similarity_df = get_similarity_df('sw_sim_matrix.csv')
@@ -326,14 +308,14 @@ models = {
     },
     "knn": {
         'uniform': {
-            "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=10),
-            "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=30),
-            "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=60),
+            # "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=10, n_jobs=-2),
+            "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=30, n_jobs=-2),
+            # "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=60, n_jobs=-2),
         },
         'distance': {
-            "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=10),
-            "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=30),
-            "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=60),
+            "KNN, weights=distance, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=10),
+            "KNN, weights=distance, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=30),
+            "KNN, weights=distance, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=60),
         }
     }   
 }
