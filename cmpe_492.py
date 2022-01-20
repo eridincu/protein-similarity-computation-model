@@ -145,7 +145,7 @@ def vectorize_data(data, vectorizer):
     return vector_data
 
 
-def get_protbert_embedding(aa_sequence: str):
+def get_protbert_embedding(aa_sequence):
     cleaned_sequence = re.sub(r'[UZOB]', 'X', aa_sequence)
     #tokens = PROTEIN_TOKENIZER(cleaned_sequence, return_tensors='pt')
     #output = PROTBERT(**tokens)
@@ -153,7 +153,7 @@ def get_protbert_embedding(aa_sequence: str):
     return ''
 
 
-def split_data(similarity_df, protein_sequences_vectorized,  train_data_size: int):
+def split_data(similarity_df, protein_sequences_vectorized,  train_data_size):
     plain_data = list(protein_sequences_vectorized.items())
     random.shuffle(plain_data)
     train_X = plain_data[:train_data_size]
