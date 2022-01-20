@@ -20,9 +20,12 @@ import numpy as np
 import pandas as pd
 #from Bio import Align
 #from transformers import AutoModel, AutoTokenizer
-from sklearn import svm
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
+
+from sklearn.svm import SVR
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 # from lightgbm import LGBMRegressor
 from sklearn.linear_model import LassoLarsCV
@@ -207,27 +210,27 @@ def train_and_save_model(model_name, model, train_X, train_y):
 
     return model
 
-def train_protein_similarity_model_LGBM(train_X, train_Y):
-    model = LGBMRegressor()
+# def train_protein_similarity_model_LGBM(train_X, train_Y):
+#     model = LGBMRegressor()
 
-    logging.info('Training model')
-    model.fit(np.array(train_X), np.array(train_Y))
+#     logging.info('Training model')
+#     model.fit(np.array(train_X), np.array(train_Y))
 
-    # for cross validation
-    #cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
-    #n_scores = cross_val_score(model, np.array(train_X), np.array(train_Y), scoring='neg_mean_absolute_error', cv=cv, n_jobs=-1, error_score='raise')
-    # report performance
-    #print(n_scores)
-    #print('MAE: %.3f (%.3f)' % (np.mean(n_scores),np.std(n_scores)))
+#     # for cross validation
+#     #cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
+#     #n_scores = cross_val_score(model, np.array(train_X), np.array(train_Y), scoring='neg_mean_absolute_error', cv=cv, n_jobs=-1, error_score='raise')
+#     # report performance
+#     #print(n_scores)
+#     #print('MAE: %.3f (%.3f)' % (np.mean(n_scores),np.std(n_scores)))
 
 
-    logging.info('Training completed.')
+#     logging.info('Training completed.')
 
-    with open('LGBM.pickle', 'wb') as f:
-        pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
-        logging.info('Saved the model as a pickle.\n')
+#     with open('LGBM.pickle', 'wb') as f:
+#         pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
+#         logging.info('Saved the model as a pickle.\n')
 
-    return model
+#     return model
 
 def test_model(model_name, test_X, test_y, similarity_model):
     logging.info('Testing ' + model_name)
@@ -283,10 +286,24 @@ print(len(train_y))
 print(len(test_X))
 print(len(test_y))
 
+regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
 models = {
     "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=False),
     "Cross Validated-Normalized Lasso": LassoLarsCV(cv=5, normalize=True),
-
+    "SVR, kernel=rbf, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=100.0, epsilon=0.2)),
+    "SVR, kernel=rbf, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=10.0, epsilon=0.2)),
+    "SVR, kernel=rbf, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2)),
+    "SVR, kernel=rbf, c=0.8, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.8, epsilon=0.2)),
+    "SVR, kernel=rbf, c=0.6, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.6, epsilon=0.2)),
+    "SVR, kernel=rbf, c=0.4, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.4, epsilon=0.2)),
+    "SVR, kernel=rbf, c=0.2, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(C=0.2, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=100.0, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=10.0, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=1.0, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=0.8, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.8, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=0.6, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.6, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=0.4, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.4, epsilon=0.2)),
+    "SVR, kernel=sigmoid, c=0.2, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.2, epsilon=0.2)),
 }
 for model_name in models:
     model = models[model_name]
