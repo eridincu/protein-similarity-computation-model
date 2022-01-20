@@ -286,6 +286,9 @@ models = {
         }
     },
     "svr": {
+        'default': {
+            "SVR, kernel=linear, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=1.0, epsilon=0.2)),
+        },
         'linear': {
             "SVR, kernel=linear, c=100, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=100.0, epsilon=0.2, )),
             "SVR, kernel=linear, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel="linear", C=10.0, epsilon=0.2)),
@@ -306,11 +309,24 @@ models = {
            
         }
     },
+    "linearsvr": {
+        "default": {
+            "LinearSVR, c=1": LinearSVR(C=1),
+        },
+        "no_epsilon": {
+            "LinearSVR, c=0.1": LinearSVR(C=0.1),
+            "LinearSVR, c=1": LinearSVR(C=1),
+            "LinearSVR, c=10": LinearSVR(C=10),
+        }
+    },
     "knn": {
-        'uniform': {
-            # "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=10, n_jobs=-2),
+        'default': {
             "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=30, n_jobs=-2),
-            # "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=60, n_jobs=-2),
+        },
+        'uniform': {
+            "KNN, weights=uniform, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=10, n_jobs=-2),
+            "KNN, weights=uniform, leaf_size=30, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=30, n_jobs=-2),
+            "KNN, weights=uniform, leaf_size=60, neighbors=5": KNeighborsRegressor(weights='uniform', leaf_size=60, n_jobs=-2),
         },
         'distance': {
             "KNN, weights=distance, leaf_size=10, neighbors=5": KNeighborsRegressor(weights='distance', leaf_size=10),
