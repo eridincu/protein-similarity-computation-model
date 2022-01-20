@@ -257,25 +257,25 @@ def test_model(model_name, test_X, test_y, similarity_model):
         if abs(prediction - actual) <= 0.001:
             c_001 += 1
     
-    print('0.1')
+    # print('0.1')
     logging.info('0.1')
-    print(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    # print(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
     logging.info(str(c_1) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    print('Accuracy: ' + str(float(c_1) / len(test_X)))
+    # print('Accuracy: ' + str(float(c_1) / len(test_X)))
     logging.info('Accuracy: ' + str(float(c_1) / len(test_X)))
     
-    print('\n0.01')
+    # print('\n0.01')
     logging.info('0.01')
-    print(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    # print(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
     logging.info(str(c_01) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    print('Accuracy: ' + str(float(c_01) / len(test_X)))
+    # print('Accuracy: ' + str(float(c_01) / len(test_X)))
     logging.info('Accuracy: ' + str(float(c_01) / len(test_X)))
     
-    print('\n0.001')
+    # print('\n0.001')
     logging.info('0.001')
-    print(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
+    # print(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
     logging.info(str(c_001) + ' out of ' + str(len(test_X)) + ' samples are predicted close to correct.')
-    print('Accuracy: ' + str(float(c_001) / len(test_X)))
+    # print('Accuracy: ' + str(float(c_001) / len(test_X)))
     logging.info('Accuracy: ' + str(float(c_001) / len(test_X)))
 
     logging.info('Test completed in ' + str(time.time() - start_time) + ' seconds.\n')
@@ -288,10 +288,10 @@ protein_sequences_vectorized = get_protein_sequences_vectorized(
 
 train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=445)
 
-print(len(train_X))
-print(len(train_y))
-print(len(test_X))
-print(len(test_y))
+# print(len(train_X))
+# print(len(train_y))
+# print(len(test_X))
+# print(len(test_y))
 
 
 regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
