@@ -16,6 +16,7 @@ import re
 import pickle
 import time
 import sys
+import lightgbm
 
 
 import numpy as np
@@ -31,17 +32,21 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LassoLarsCV
 from sklearn.neighbors import KNeighborsRegressor
-# from lightgbm import LGBMRegressor
-
+from lightgbm import LGBMRegressor
+from sqlalchemy import func
 
 from sklearn.model_selection import train_test_split
 
 args = sys.argv[1:]
 
-if len(args) == 1:
-    args.append("default")
+if len(args) <= 1:
+    print("Missing arg. You should give a model type and a model definer. Example: knn uniform, lasso default, svr linear")
+    exit()
 
-logging.basicConfig(filename="LOGS" + args[0] + "_" + args[1] + ".txt",
+if len(args) == 2:
+    args.append("concat")
+
+logging.basicConfig(filename="LOGS" + args[0] + "_" + args[1] + "_" + args[2] + ".txt",
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
@@ -153,8 +158,17 @@ def get_protbert_embedding(aa_sequence):
     #return output.last_hidden_state.detach().numpy().mean(axis=1)
     return ''
 
+def aggregator_func(a, b, func_type):
+    if func_type == 'concat':
+        return np.concatenate((a,b))
+    elif func_type == 'sum':
+        return np.add(a, b)
+    elif func_type == 'subtract':
+        return np.subtract(a, b)
+    elif func_type == 'mean':
+        return np.add(a, b) / 2
 
-def split_data(similarity_df, protein_sequences_vectorized, train_data_size):
+def split_data(similarity_df, protein_sequences_vectorized, train_data_size, func_type='concat'):
     plain_data = list(protein_sequences_vectorized.items())
     random.shuffle(plain_data)
     train_X = plain_data[:train_data_size]
@@ -165,22 +179,22 @@ def split_data(similarity_df, protein_sequences_vectorized, train_data_size):
     train_Y_final = []
     for id, vector in train_X:
         for id2, vector2 in train_X:
-            train_X_final.append(np.concatenate((vector, vector2)))
+            train_X_final.append(aggregator_func(vector, vector2, func_type))
             train_Y_final.append(similarity_df[(id, id2)])
 
     test_X_final = []
     test_Y_final = []
     for id, vector in test_X:
         for id2, vector2 in train_X:
-            test_X_final.append(np.concatenate((vector, vector2)))
+            test_X_final.append(aggregator_func(vector, vector2, func_type))
             test_Y_final.append(similarity_df[(id, id2)])
         for id2, vector2 in test_X:
-            test_X_final.append(np.concatenate((vector, vector2)))
+            test_X_final.append(aggregator_func(vector, vector2, func_type))
             test_Y_final.append(similarity_df[(id, id2)])
 
     for id, vector in train_X:
         for id2, vector2 in test_X:
-            test_X_final.append(np.concatenate((vector, vector2)))
+            test_X_final.append(aggregator_func(vector, vector2, func_type))
             test_Y_final.append(similarity_df[(id, id2)])
 
     logging.info("Splitted data.")
@@ -268,13 +282,9 @@ similarity_df = get_similarity_df('sw_sim_matrix.csv')
 protein_sequences_vectorized = get_protein_sequences_vectorized(
     'proteins.json', get_protbert_embedding)
 
-train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=445)
+func_type = args[2]
 
-# print(len(train_X))
-# print(len(train_y))
-# print(len(test_X))
-# print(len(test_y))
-
+train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=445, func_type=func_type)
 
 regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
 
@@ -306,7 +316,7 @@ models = {
             "SVR, kernel=sigmoid, c=10, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=10.0, epsilon=0.2)),
             "SVR, kernel=sigmoid, c=1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=1.0, epsilon=0.2)),
             "SVR, kernel=sigmoid, c=0.1, epsilon=0.2, Standard Scaler pipeline": make_pipeline(StandardScaler(), SVR(kernel='sigmoid', C=0.1, epsilon=0.2)),
-           
+        
         }
     },
     "linearsvr": {
