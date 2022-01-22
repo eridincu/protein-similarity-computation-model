@@ -17,6 +17,8 @@ import pickle
 import time
 import sys
 import lightgbm
+import hashlib
+import base64
 
 
 import numpy as np
@@ -33,7 +35,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LassoLarsCV
 from sklearn.neighbors import KNeighborsRegressor
 from lightgbm import LGBMRegressor
-from sqlalchemy import func
 
 from sklearn.model_selection import train_test_split
 
@@ -160,7 +161,7 @@ def get_protbert_embedding(aa_sequence):
 
 def aggregator_func(a, b, func_type):
     if func_type == 'concat':
-        return np.concatenate((a,b))
+        return np.concatenate((a,b))   
     elif func_type == 'sum':
         return np.add(a, b)
     elif func_type == 'subtract':
@@ -168,20 +169,65 @@ def aggregator_func(a, b, func_type):
     elif func_type == 'mean':
         return np.add(a, b) / 2
 
+def getMd5Hash(protein_sequence):
+    h = hashlib.md5(protein_sequence.encode())
+    return base64.b16encode(h.digest()).decode()
+
+def create_data_for_firestore(similarity_df, protein_sequences_vectorized, func_type='concat'):
+    protein_sequences = {}
+    logging.info("Creating data for firestore...")
+    with open("proteins_copy.json", 'r') as p_file:
+        protein_sequences = json.load(p_file)
+
+        if not protein_sequences['is_vectorized']:
+            protein_sequences = protein_sequences['proteins']
+        else:
+            logging.info("failed to create firestore data.")
+            return
+    
+    plain_data = list(protein_sequences_vectorized.items())
+    train_X = plain_data[:len(plain_data)]
+
+    train_X_final = {}
+    protein_vectors = {}
+    
+    for id, vector in train_X:
+        protein_vectors[getMd5Hash(protein_sequences[id])] = vector
+
+    for id, _ in train_X:
+        for id2, _ in train_X:
+            pair_key = ""
+            if  protein_sequences[id] <  protein_sequences[id2]:
+                pair_key = protein_sequences[id] + "_" +  protein_sequences[id2]
+            else:
+                pair_key =  protein_sequences[id2] + "_" +  protein_sequences[id]
+            
+            pair_key = getMd5Hash(pair_key)
+            if pair_key not in train_X_final:
+                train_X_final[pair_key] = {'first_sequence': protein_sequences[id], 'second_sequence': protein_sequences[id2], 'score': similarity_df[(id, id2)]}
+    
+    with open('proteins_for_seed.json', 'w') as f:
+        json.dump(train_X_final, f)
+    with open('protein_sequences', 'w') as f:
+        json.dump(protein_vectors, f)
+    
+    logging.info("Datastore data is created successfully.")
+    return train_X_final
+
 def split_data(similarity_df, protein_sequences_vectorized, train_data_size, func_type='concat'):
     plain_data = list(protein_sequences_vectorized.items())
     random.shuffle(plain_data)
     train_X = plain_data[:train_data_size]
     test_X = plain_data[train_data_size:]
     logging.info("Splitting data...")
-
+    
     train_X_final = []
     train_Y_final = []
     for id, vector in train_X:
         for id2, vector2 in train_X:
             train_X_final.append(aggregator_func(vector, vector2, func_type))
             train_Y_final.append(similarity_df[(id, id2)])
-
+    
     test_X_final = []
     test_Y_final = []
     for id, vector in test_X:
@@ -223,10 +269,12 @@ def prepare_model_data(data, protein_sequences_vectorized):
 def train_and_save_model(model_name, model, train_X, train_y):
     logging.info('Training model ' + model_name)
     start_time = time.time()
+    print(np.shape(train_X))
+    print(np.shape(train_X[0]))
     model.fit(np.array(train_X), np.array(train_y))
     logging.info('Training completed in ' + str(time.time() - start_time) + ' seconds.')
 
-    with open(model_name + '.pickle', 'wb') as f:
+    with open(model_name + '_new.pickle', 'wb') as f:
         pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
         logging.info('Saved ' + model_name + ' model as a pickle.\n')
 
@@ -284,6 +332,8 @@ protein_sequences_vectorized = get_protein_sequences_vectorized(
 
 func_type = args[2]
 
+# train_X_for_seed = create_data_for_firestore(similarity_df, protein_sequences_vectorized, func_type=func_type)
+# exit()
 train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=445, func_type=func_type)
 
 regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
@@ -291,8 +341,8 @@ regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
 models = {
     "lasso": {
         'default': {
-            "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=True),
-            "Cross Validated-Normalized Lasso": LassoLarsCV(cv=5, normalize=False),
+            "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=False),
+            "Cross Validated-Normalized Lasso": LassoLarsCV(cv=5, normalize=True),
         }
     },
     "svr": {
