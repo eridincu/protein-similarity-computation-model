@@ -337,8 +337,19 @@ func_type = args[2]
 train_X, train_y, test_X, test_y = split_data(similarity_df, protein_sequences_vectorized, train_data_size=445, func_type=func_type)
 
 regr = make_pipeline(StandardScaler(), SVR(C=1.0, epsilon=0.2))
+params = {'reg_alpha': 0.038878767356274956, 'reg_lambda': 1.0408691415547617, 'colsample_bytree': 0.9,
+              'subsample': 0.7, 'learning_rate': 0.01, 'max_depth': 10, 'num_leaves': 927, 'min_child_samples': 166,
+              'min_data_per_groups': 72, 'random_state': 48, 'n_estimators': 20000, 'metric': 'rmse'}
+# I changed min_data_per_groups to cat_smooth beacuse when I used LGBM params in optuna I named cat_smooth
+# as min_data_per_groups (there is no parameter named min_data_per_groups in LGBM !!!)
+params['cat_smooth'] = params.pop('min_data_per_groups')
 
 models = {
+    "lightgbm": {
+        "default": {
+            "LightGBM Regressor": LGBMRegressor(**params)
+        }
+    },
     "lasso": {
         'default': {
             "Cross Validated Lasso": LassoLarsCV(cv=5, normalize=False),
